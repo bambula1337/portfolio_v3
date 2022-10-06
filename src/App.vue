@@ -7,6 +7,16 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue';
+// Tailwind styles
+import '@/assets/styles/tailwind/tailwind.scss';
+
+export default Vue.extend({
+  name: 'AppComponent',
+});
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -14,9 +24,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-html{
-  background-color: rgba(22, 22, 26, 1);
 }
 
 nav {

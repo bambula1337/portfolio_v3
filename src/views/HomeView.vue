@@ -11,3 +11,6 @@ export default Vue.extend({
   name: 'HomeView',
 });
 </script>
+
+<style lang="scss">
+</style>
