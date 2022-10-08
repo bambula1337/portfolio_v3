@@ -46,6 +46,16 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+
+      'project-first': '#7F5AF0',
+      'project-second': '#2FD9FF',
+      'project-background': '#16161A',
+      'project-secondaire': '#72757E',
+      'project-title': '#FFFFFF',
+      'project-stroke': '#010101',
+      'project-principal': '#FFFFFF',
+      'project-paragraph': '#94A1B2',
+      'project-highlight': '#7F5AF0',
     },
     spacing: {
       px: '1px',
@@ -287,6 +297,7 @@ module.exports = {
       0: '0px',
       1: '1px',
       2: '2px',
+      3: '3px',
       4: '4px',
       8: '8px',
     },
@@ -337,7 +348,10 @@ module.exports = {
       '2xl': '0 25px 25px rgba(0, 0, 0, 0.15)',
       none: '0 0 #0000',
     },
-    fill: { current: 'currentColor' },
+    fill: (theme) => ({
+      ...theme('colors'),
+      current: 'currentColor',
+    }),
     grayscale: {
       0: '0',
       DEFAULT: '100%',
