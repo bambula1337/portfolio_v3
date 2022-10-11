@@ -52,7 +52,16 @@ export default Vue.extend({
   & .logo{
     @apply h-10 mb-5;
     & .logo-text{
-      @apply text-4xl font-bold uppercase mt-0 mb-7 cursor-pointer;
+      @apply text-4xl font-bold uppercase mt-0 mb-7 cursor-pointer transition-all duration-700;
+      background: linear-gradient(to right, #62B3EE 0%, #796EEC 50%, #61CDB6 100%) 5px 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      &:hover{
+        @apply text-project-highlight;
+        background: linear-gradient(to right, #62B3EE 0%, #796EEC 50%, #61CDB6 100%) 50px 0;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
   }
   & .icons-wrapper{
@@ -70,7 +79,11 @@ export default Vue.extend({
         content: '';
       }
       & .icon{
-        @apply w-7 my-4 cursor-pointer;
+        @apply w-7 h-7 my-4 ring-2 ring-project-background ring-offset-4 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
+
+        &:hover{
+          @apply ring-project-principal;
+        }
       }
     }
   }
