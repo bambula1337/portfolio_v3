@@ -1,29 +1,26 @@
 <template>
   <div class="home">
     <WelcomeSection/>
-    <WelcomeSectionText/>
-    <WelcomeSectionNavigation/>
+    <AboutSection/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import WelcomeSection from '@/components/WelcomeSection.vue';
-import WelcomeSectionText from '@/components/WelcomeSectionText.vue';
-import WelcomeSectionNavigation from '@/components/WelcomeSectionNavigation.vue';
+import AboutSection from '@/components/AboutSection.vue';
 
 export default Vue.extend({
   name: 'HomeView',
   components: {
     WelcomeSection,
-    WelcomeSectionText,
-    WelcomeSectionNavigation,
+    AboutSection,
   },
 });
 </script>
 
 <style lang="scss">
-.home{
-  @apply h-screen flex justify-between items-center px-5;
+.home {
+  @apply flex flex-col;
 }
 </style>

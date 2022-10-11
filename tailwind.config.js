@@ -416,6 +416,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      'project-default': ['ClashDisplay'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

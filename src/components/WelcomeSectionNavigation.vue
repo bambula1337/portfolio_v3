@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation">
+  <div class="welcome-section-navigation">
     <div class="dots">
       <div :class="[{'active': dot.active}, 'dot']" v-for="(dot, index) in dots" :key="index"></div>
     </div>
@@ -33,7 +33,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.navigation {
+.welcome-section-navigation {
   @apply w-14 text-project-title;
   & .dots {
     @apply flex relative flex-col items-center;

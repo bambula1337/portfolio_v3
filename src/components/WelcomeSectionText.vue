@@ -5,7 +5,7 @@
         Welcome, I am <span class="gradient">Adm's</span>
       </p>
       <p class="sub-text">
-        Junior Front end developer from Ukraine. Experienced in <span class="bold">Vue js and its ecosystem</span>,
+        Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
         enthusiastic and kind person.
       </p>
     </div>
@@ -23,30 +23,29 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/mixins/default_mixins.scss";
+
 .welcome-section-text {
-  @apply w-screen flex flex-col items-center text-project-title;
+  @apply w-screen flex flex-col items-center text-project-title font-project-default;
   align-self: center;
 
   & .text-wrapper {
     @apply flex flex-col items-center mt-20;
     & .main-text {
-      @apply text-5xl font-bold mb-5;
+      @apply text-5xl font-semibold mb-5;
       & .gradient {
-        background: #62B3EE;
-        background: linear-gradient(to right, #62B3EE 0%, #796EEC 50%, #61CDB6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @include default-gradient();
       }
     }
     & .sub-text{
       @apply w-116 text-2xl;
-      & .bold{
-        @apply font-bold;
+      & .semi-bold{
+        @apply font-semibold;
       }
     }
   }
   & .button{
-    @apply w-60 h-12 bg-project-first text-lg font-bold mt-40 mb-14 rounded-full ring-4 ring-offset-4;
+    @apply w-60 h-12 bg-project-first text-lg font-semibold mt-40 mb-14 rounded-full ring-4 ring-offset-4;
     @apply ring-offset-project-background ring-project-highlight transition-all duration-300 select-none;
 
     &:hover{

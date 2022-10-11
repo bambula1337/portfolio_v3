@@ -1,0 +1,6 @@
+@mixin default-gradient($posx: 0, $posy: 0){
+  background: #62B3EE;
+  background: linear-gradient(to right, #62B3EE 0%, #796EEC 50%, #61CDB6 100%) $posx $posy;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

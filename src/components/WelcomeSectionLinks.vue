@@ -46,21 +46,21 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/mixins/default_mixins.scss";
+
 .welcome-section-links{
-  @apply flex flex-col items-center text-project-principal;
+  @apply flex flex-col items-center text-project-principal font-project-default;
   min-height: 100px;
   & .logo{
     @apply h-10 mb-5;
     & .logo-text{
-      @apply text-4xl font-bold uppercase mt-0 mb-7 cursor-pointer transition-all duration-700;
-      background: linear-gradient(to right, #62B3EE 0%, #796EEC 50%, #61CDB6 100%) 5px 0;
+      @apply text-4xl font-semibold uppercase mt-0 mb-7 cursor-pointer transition-all duration-700;
+      @include default-gradient(5px);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       &:hover{
         @apply text-project-highlight;
-        background: linear-gradient(to right, #62B3EE 0%, #796EEC 50%, #61CDB6 100%) 50px 0;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @include default-gradient(50px);
       }
     }
   }
