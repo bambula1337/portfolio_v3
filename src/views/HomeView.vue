@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <WelcomeSection/>
-    <AboutSection/>
+    <WelcomeSection class="welcome-section"/>
+    <AboutSection class="about-section"/>
   </div>
 </template>
 
@@ -21,6 +21,10 @@ export default Vue.extend({
 
 <style lang="scss">
 .home {
-  @apply flex flex-col;
+  @apply flex flex-col pb-100;
+
+  & .welcome-section{
+    @apply mb-72;
+  }
 }
 </style>

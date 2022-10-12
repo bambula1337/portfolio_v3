@@ -56,8 +56,6 @@ export default Vue.extend({
     & .logo-text{
       @apply text-4xl font-semibold uppercase mt-0 mb-7 cursor-pointer transition-all duration-700;
       @include default-gradient(5px);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       &:hover{
         @apply text-project-highlight;
         @include default-gradient(50px);
