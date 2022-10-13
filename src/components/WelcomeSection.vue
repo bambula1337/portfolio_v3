@@ -38,7 +38,7 @@ export default Vue.extend({
           markers: true,
           pin: '.about-section',
         },
-        scale: 0.9,
+        scale: 0.8,
         opacity: 0,
       },
     );
