@@ -14,7 +14,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .about-section-image{
-  @apply w-76 relative;
+  @apply w-76 relative ml-auto;
   &::before{
     @apply w-68 h-full absolute left-0 top-0 border-4 -ml-5 -mt-5 -z-1;
     content: '';

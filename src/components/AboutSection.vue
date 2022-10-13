@@ -1,7 +1,7 @@
 <template>
   <div class="about-section">
-    <AboutSectionText/>
-    <AboutSectionImage/>
+    <AboutSectionText ref="text"/>
+    <AboutSectionImage ref="image"/>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.about-section{
-  @apply flex justify-between items-center px-32;
+.about-section {
+  @apply flex items-center px-32;
 }
 </style>

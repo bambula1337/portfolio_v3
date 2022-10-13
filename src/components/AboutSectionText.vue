@@ -25,6 +25,7 @@ export default Vue.extend({
 
 .about-section-text {
   @apply flex flex-col font-project-default -mt-10;
+
   & .top-text {
     @apply text-left mb-7;
     & .main-text {

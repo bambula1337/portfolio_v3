@@ -21,7 +21,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .home {
-  @apply flex flex-col pb-100;
+  @apply flex flex-col overflow-x-hidden pb-220;
 
   & .welcome-section{
     @apply mb-72;
