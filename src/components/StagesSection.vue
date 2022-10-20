@@ -12,6 +12,8 @@ import StagesSectionStages from '@/components/StagesSectionStages.vue';
 // gsap importing
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+// eslint-disable-next-line import/extensions
+import DrawSVGPlugin from '@/assets/gsap/draw-svg.js';
 
 export default Vue.extend({
   name: 'StagesSection',
@@ -20,7 +22,7 @@ export default Vue.extend({
     StagesSectionStages,
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
     const tl = gsap.timeline();
     tl.from(
       '.stage-section-text',
@@ -65,7 +67,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.stage-section{
+.stage-section {
   @apply flex flex-col;
 }
 </style>
