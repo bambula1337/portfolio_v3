@@ -1,7 +1,7 @@
 <template>
   <div class="about-section">
-    <AboutSectionText ref="text"/>
-    <AboutSectionImage ref="image"/>
+    <AboutSectionText/>
+    <AboutSectionImage/>
   </div>
 </template>
 
@@ -34,6 +34,7 @@ export default Vue.extend({
           // markers: true,
           pin: '.about-section',
           pinType: 'transform',
+          pinSpacing: true,
         },
         scale: 0.8,
         opacity: 0,
@@ -52,6 +53,7 @@ export default Vue.extend({
           // markers: true,
           pin: '.about-section',
           pinType: 'transform',
+          pinSpacing: true,
         },
         y: 200,
         opacity: 0,

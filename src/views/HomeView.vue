@@ -30,7 +30,7 @@ export default Vue.extend({
     @apply mb-72;
   }
   & .about-section{
-    @apply mb-220;
+    @apply mb-80;
   }
 }
 </style>
