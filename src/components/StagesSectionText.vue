@@ -19,7 +19,7 @@ export default Vue.extend({
 @import '@/assets/styles/mixins/default_mixins.scss';
 
 .stage-section-text{
-  @apply flex flex-col items-start text-left font-project-default px-20;
+  @apply flex flex-col items-start text-left font-project-default px-26;
   & .text-wrapper{
     & .main{
       @apply text-2xl font-bold;

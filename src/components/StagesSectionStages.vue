@@ -57,9 +57,9 @@ export default Vue.extend({
 .stages-section-stages {
   @apply flex justify-center items-center mt-26;
   & .cards-wrapper {
-    @apply w-full flex justify-evenly flex-wrap text-left text-project-title font-project-default;
+    @apply w-full flex justify-between flex-wrap text-left text-project-title font-project-default px-26;
     & .card {
-      @apply w-80 border-2 border-project-title rounded-2xl py-3 px-5;
+      @apply w-80 bg-project-background border-2 border-project-title rounded-2xl py-3 px-5;
       & .top {
         & .number {
           @apply inline text-2xl;
