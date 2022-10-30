@@ -39,6 +39,8 @@ export default Vue.extend({
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
+    // Have to refresh because in some browsers ScrollTrigger animation brakes after reloas
+    ScrollTrigger.refresh();
     const tl = gsap.timeline();
     tl.from(
       '.stage-section-text',
