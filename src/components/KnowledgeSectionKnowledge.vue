@@ -12,7 +12,8 @@
   </div>
 </template>
 
-<!--TODO: Create flexible data which base on date instead of string-->
+<!--TODO: Create flexible data which base on date instead of string
+          Crate Open animation using gsap and height-->
 
 <script lang="ts">
 import Vue from 'vue';
@@ -87,17 +88,13 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .knowledge-section__knowledge {
-  @apply w-full flex flex-col justify-center font-project-default px-26;
+  @apply w-full flex flex-col justify-center font-project-default bg-no-repeat px-26 py-10;
+  background-image: url('@/assets/particles/dots-purple.svg'),
+                    url('@/assets/particles/boxes-blue.svg');
+  background-position: 8rem top, 95% bottom;
 
   & .knowledge-main {
     @apply h-70 flex items-center relative flex-wrap border-2 border-project-principal rounded-4xl py-20 overflow-hidden transition-all duration-500;
-    &::after {
-      $size: 2.5rem;
-      width: $size;
-      height: $size;
-      left: calc(50% - $size);
-    }
-
     & .skill {
       @apply w-%25 mb-32;
       & .name {
