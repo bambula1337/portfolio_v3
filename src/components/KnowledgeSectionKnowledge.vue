@@ -8,7 +8,11 @@
         </div>
       </div>
     </div>
-    <p class="knowledge-opener">Show more</p>
+    <div class="knowledge-opener">
+      <transition name="opener-name" mode="out-in">
+        <p class="knowledge-opener-text" :key="isOpened">{{ openerText }}</p>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -82,6 +86,14 @@ export default Vue.extend({
       ],
     };
   },
+  computed: {
+    openerText() {
+      if (this.isOpened) {
+        return 'Ok, I got it';
+      }
+      return 'Show more';
+    },
+  },
   mounted() {
     // Creating Timeline
     const tl = gsap.timeline({ reversed: true, paused: true });
@@ -128,5 +140,18 @@ export default Vue.extend({
   & .knowledge-opener {
     @apply text-project-title -mt-10 cursor-pointer z-10 w-40 self-center;
   }
+}
+
+// opener Transition Group Animation
+.opener-name-enter-active,
+.opener-name-leave-active {
+  @apply transition-all duration-500;
+}
+
+.opener-name-enter{
+  @apply opacity-100 translate-x-20;
+}
+.opener-name-leave-to{
+  @apply opacity-0 -translate-x-20;
 }
 </style>
