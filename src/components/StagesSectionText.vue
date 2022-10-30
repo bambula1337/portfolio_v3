@@ -22,8 +22,7 @@ export default Vue.extend({
   @apply flex flex-col items-start text-left font-project-default px-26;
   & .text-wrapper{
     & .main{
-      @apply text-2xl font-bold;
-      display: inline-flex;
+      @apply inline-flex text-2xl font-bold;
       @include default-gradient();
     }
     & .sub{
