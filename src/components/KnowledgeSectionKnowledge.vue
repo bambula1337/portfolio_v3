@@ -142,7 +142,7 @@ export default Vue.extend({
   }
 }
 
-// opener Transition Group Animation
+// Opener Text Transition Group Animation
 .opener-name-enter-active,
 .opener-name-leave-active {
   @apply transition-all duration-500;
