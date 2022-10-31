@@ -4,7 +4,7 @@
       <div class="skill" v-for="skill in skills" :key="skill.id">
         <div class="text-wrapper">
           <p class="name">{{ skill.name }}</p>
-          <p class="period" :class="{ odd: skill.id % 2 === 0 }">{{ skill.period }}</p>
+          <p class="period" :class="{ odd: skill.id % 2 === 0 }">{{ skill.period | dateFilter }}</p>
         </div>
       </div>
     </div>
@@ -15,8 +15,6 @@
     </div>
   </div>
 </template>
-
-<!--TODO: Create flexible data which base on date instead of string-->
 
 <script lang="ts">
 import Vue from 'vue';
@@ -31,57 +29,57 @@ export default Vue.extend({
         {
           id: 1,
           name: 'Vue',
-          period: 'Year',
+          period: '2020-10-4',
         },
         {
           id: 2,
           name: 'HTML',
-          period: '2 Years',
+          period: '2020-01-4',
         },
         {
           id: 3,
           name: 'CSS',
-          period: '2 Years',
+          period: '2020-01-4',
         },
         {
           id: 4,
           name: 'JS',
-          period: 'Year',
+          period: '2021-08-4',
         },
         {
           id: 5,
           name: 'TS',
-          period: '3 Months',
+          period: '2022-7-4',
         },
         {
           id: 6,
           name: 'GSAP',
-          period: '3 Months',
+          period: '2022-7-4',
         },
         {
           id: 7,
           name: 'AXIOS',
-          period: '5 Months',
+          period: '2022-03-4',
         },
         {
           id: 8,
           name: 'VUEX',
-          period: '5 Months',
+          period: '2021-03-4',
         },
         {
           id: 9,
           name: 'NPM',
-          period: 'Year',
+          period: '2022-02-4',
         },
         {
           id: 10,
           name: 'GIT',
-          period: '2 Years',
+          period: '2020-07-4',
         },
         {
           id: 11,
           name: 'Tailwind',
-          period: '7 Months',
+          period: '2022-03-4',
         },
       ],
     };
@@ -92,6 +90,33 @@ export default Vue.extend({
         return 'Ok, I got it';
       }
       return 'Show more';
+    },
+  },
+  filters: {
+    dateFilter(dateText: string) {
+      // Calculating total Months
+      const date = new Date(dateText);
+      const current = new Date();
+      const months = current.getMonth()
+        - date.getMonth()
+        + 12 * (current.getFullYear() - date.getFullYear());
+      // Calculating Years
+      const years = Math.floor(months / 12);
+      let result = '';
+      // Choosing correct text
+      if (months === 1) {
+        result = `${months} Month`;
+      } else if (months < 12 && months > 1) {
+        result = `${months} Months`;
+      } else if (years === 1) {
+        result = `${years} Year`;
+      } else if (years > 1) {
+        result = `${years} Years`;
+      } else {
+        result = 'Very short time';
+      }
+
+      return result;
     },
   },
   mounted() {
@@ -148,10 +173,10 @@ export default Vue.extend({
   @apply transition-all duration-500;
 }
 
-.opener-name-enter{
+.opener-name-enter {
   @apply opacity-100 translate-x-20;
 }
-.opener-name-leave-to{
+.opener-name-leave-to {
   @apply opacity-0 -translate-x-20;
 }
 </style>
