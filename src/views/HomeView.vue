@@ -44,7 +44,7 @@ export default Vue.extend({
     @apply mb-120;
   }
   & .knowledge-section{
-    @apply mb-100;
+    @apply mb-158;
   }
 }
 </style>

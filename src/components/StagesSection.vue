@@ -1,18 +1,26 @@
 <template>
   <div class="stage-section">
-    <StagesSectionText/>
-    <StagesSectionStages/>
+    <StagesSectionText />
+    <StagesSectionStages />
     <div class="stage-background">
       <div class="stage-background-image-wrapper">
-        <svg width="1478" height="364" viewBox="0 0 1478 364" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
-          <path class="background-image"
-                d="M4 211.36C269.5 429.499 437.5 172.5 629.5 172.5C894.689 172.5 935 358.5 1096.5 358.5C1236.22 358.5 1420.5 145.5 1473 2"
-                stroke="white" stroke-width="10"/>
+        <svg
+          width="1478"
+          height="364"
+          viewBox="0 0 1478 364"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="background-image"
+            d="M4 211.36C269.5 429.499 437.5 172.5 629.5 172.5C894.689 172.5 935 358.5 1096.5 358.5C1236.22 358.5 1420.5 145.5 1473 2"
+            stroke="white"
+            stroke-width="10"
+          />
         </svg>
       </div>
       <div class="stage-background-plane-wrapper">
-        <img class="plane" src="@/assets/images/stages_section/plane.svg" alt="">
+        <img class="plane" src="@/assets/images/stages_section/plane.svg" alt="" />
       </div>
     </div>
   </div>
@@ -42,48 +50,42 @@ export default Vue.extend({
     // Have to refresh because in some browsers ScrollTrigger animation brakes after reloas
     ScrollTrigger.refresh();
     const tl = gsap.timeline();
-    tl.from(
-      '.stage-section-text',
-      {
-        scrollTrigger: {
-          trigger: '.stage-section-text',
-          toggleActions: 'restart none none none',
-          scrub: 1,
-          start: 'top 40%',
-          end: '+=150',
-          // markers: true,
-          pin: '.stages-section',
-          pinType: 'transform',
-          pinSpacing: true,
-        },
-        scale: 0.8,
-        x: -100,
-        opacity: 0,
+    tl.from('.stage-section-text', {
+      scrollTrigger: {
+        trigger: '.stage-section-text',
+        toggleActions: 'restart none none none',
+        scrub: 1,
+        start: 'top 40%',
+        end: '+=150',
+        // markers: true,
+        pin: '.stages-section',
+        pinType: 'transform',
+        pinSpacing: true,
       },
-    );
-    tl.from(
-      '.card',
-      {
-        scrollTrigger: {
-          trigger: '.stages-section-stages',
-          toggleActions: 'restart none none none',
-          scrub: 1,
-          start: '50% 40%',
-          end: '+=700',
-          // markers: true,
-          pin: '.stages-section',
-          pinType: 'transform',
-          pinSpacing: true,
-        },
-        stagger: 1,
-        y: 50,
-        opacity: 0,
+      scale: 0.8,
+      x: -100,
+      opacity: 0,
+    });
+    tl.from('.card', {
+      scrollTrigger: {
+        trigger: '.stages-section-stages',
+        toggleActions: 'restart none none none',
+        scrub: 1,
+        start: '50% 40%',
+        end: '+=700',
+        // markers: true,
+        pin: '.stages-section',
+        pinType: 'transform',
+        pinSpacing: true,
       },
-    );
+      stagger: 1,
+      y: 50,
+      opacity: 0,
+    });
     gsap.from('.background-image', {
       scrollTrigger: {
-        trigger: '.stages-section-text',
-        start: '50% 40%',
+        trigger: '.stage-section-text',
+        start: 'top 0%',
         end: '+=550',
         scrub: 5,
       },
@@ -91,8 +93,8 @@ export default Vue.extend({
     });
     gsap.to('.stage-background-plane-wrapper', {
       scrollTrigger: {
-        trigger: '.stages-section-text',
-        start: '50%, 40%',
+        trigger: '.stage-section-text',
+        start: 'top 0%',
         end: '+=500',
         scrub: 5,
       },

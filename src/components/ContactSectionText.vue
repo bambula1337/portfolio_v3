@@ -49,7 +49,7 @@ export default Vue.extend({
 @import '@/assets/styles/mixins/default_mixins.scss';
 
 .contact-section__text {
-  @apply w-112 relative font-project-default text-project-title text-left;
+  @apply w-144 relative font-project-default text-project-title text-left;
   & .section-name {
     @apply inline-flex text-2xl font-bold mb-2;
     @include default-gradient();
