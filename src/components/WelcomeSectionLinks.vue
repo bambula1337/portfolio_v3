@@ -23,19 +23,16 @@ export default Vue.extend({
       links: [
         {
           id: 1,
-          // eslint-disable-next-line global-require
           logo: require('@/assets/icons/instagram.svg'),
           url: 'someUrl',
         },
         {
           id: 2,
-          // eslint-disable-next-line global-require
           logo: require('@/assets/icons/icon_Bem.svg'),
           url: 'someUrl',
         },
         {
           id: 3,
-          // eslint-disable-next-line global-require
           logo: require('@/assets/icons/Ball.svg'),
           url: 'someUrl',
         },

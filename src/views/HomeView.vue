@@ -4,6 +4,7 @@
     <AboutSection class="about-section" />
     <StagesSection class="stages-section" />
     <KnowledgeSection class="knowledge-section" />
+    <ContactSection class="contact-section" />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import WelcomeSection from '@/components/WelcomeSection.vue';
 import AboutSection from '@/components/AboutSection.vue';
 import StagesSection from '@/components/StagesSection.vue';
 import KnowledgeSection from '@/components/KnowledgeSection.vue';
+import ContactSection from '@/components/ContactSection.vue';
 
 export default Vue.extend({
   name: 'HomeView',
@@ -22,6 +24,7 @@ export default Vue.extend({
     AboutSection,
     StagesSection,
     KnowledgeSection,
+    ContactSection,
   },
 });
 </script>
@@ -39,6 +42,9 @@ export default Vue.extend({
 
   & .stage-section{
     @apply mb-120;
+  }
+  & .knowledge-section{
+    @apply mb-100;
   }
 }
 </style>
