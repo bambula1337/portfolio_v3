@@ -82,25 +82,18 @@ export default Vue.extend({
     );
     gsap.from('.background-image', {
       scrollTrigger: {
-        trigger: '.stages-section-stages',
-        toggleActions: 'restart none none none',
+        trigger: '.stages-section-text',
         start: '50% 40%',
-        end: '+=700',
-        pinType: 'transform',
-        pinSpacing: true,
+        end: '+=550',
         scrub: 5,
       },
       drawSVG: 0,
-      duration: 5,
     });
     gsap.to('.stage-background-plane-wrapper', {
       scrollTrigger: {
-        trigger: '.stages-section-stages',
-        toggleActions: 'restart none none none',
+        trigger: '.stages-section-text',
         start: '50%, 40%',
-        end: '+=650',
-        pinType: 'transform',
-        pinSpacing: true,
+        end: '+=500',
         scrub: 5,
       },
       motionPath: {
