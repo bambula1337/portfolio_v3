@@ -22,7 +22,6 @@ export default Vue.extend({
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline();
     gsap.from('.knowledge-section__text', {
       scrollTrigger: {
         trigger: '.knowledge-section__text',
@@ -43,15 +42,6 @@ export default Vue.extend({
       opacity: 0,
       y: 40,
     });
-    // gsap.from('.knowledge-main', {
-    //   scrollTrigger: {
-    //     trigger: '.knowledge-section',
-    //     toggleActions: 'restart none none none',
-    //   },
-    //   duration: 1,
-    //   opacity: 0,
-    //   y: 40,
-    // });
   },
 });
 </script>
