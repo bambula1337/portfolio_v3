@@ -23,46 +23,35 @@ export default Vue.extend({
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
-    tl.from('.knowledge-section__text', {
+    gsap.from('.knowledge-section__text', {
       scrollTrigger: {
-        trigger: '.knowledge-section',
+        trigger: '.knowledge-section__text',
         toggleActions: 'restart none none none',
-        start: 'top 40%',
-        end: '+=200',
-        scrub: 1,
+        start: 'top 110%',
       },
+      duration: 1,
       opacity: 0,
       y: 40,
     });
-    tl.from('.knowledge-section__knowledge', {
-      scrollTrigger: {
-        trigger: '.knowledge-section__knowledge',
-        toggleActions: 'restart none none none',
-        start: 'top 50%',
-        end: '+=50',
-        pin: '.knowledge-section',
-        pinType: 'transform',
-        pinSpacing: true,
-        scrub: 1,
-      },
-      opacity: 0,
-      y: 40,
-    });
-    tl.from('.knowledge-main', {
+    gsap.from('.knowledge-section__knowledge', {
       scrollTrigger: {
         trigger: '.knowledge-section__knowledge',
         toggleActions: 'restart none none none',
-        start: 'top 40%',
-        end: '+=200',
-        pin: '.knowledge-section',
-        pinType: 'transform',
-        pinSpacing: true,
-        id: 'xx',
-        scrub: 1,
+        start: 'top 110%',
       },
+      duration: 1.5,
       opacity: 0,
       y: 40,
     });
+    // gsap.from('.knowledge-main', {
+    //   scrollTrigger: {
+    //     trigger: '.knowledge-section',
+    //     toggleActions: 'restart none none none',
+    //   },
+    //   duration: 1,
+    //   opacity: 0,
+    //   y: 40,
+    // });
   },
 });
 </script>
