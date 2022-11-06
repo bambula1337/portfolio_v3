@@ -25,7 +25,7 @@
           />
         </label>
       </div>
-      <button type="submit" class="button" @mouseenter="animateButton" @focus="animateButton">
+      <button type="submit" class="button">
         <p class="button-text">Send</p>
         <img src="@/assets/icons/send.svg" alt="" class="button-image" />
       </button>
@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { gsap } from 'gsap';
 
 export default Vue.extend({
   name: 'ContactSectionForm',
@@ -68,10 +69,33 @@ export default Vue.extend({
       },
     };
   },
-  methods: {
-    animateButton(event: any) {
-      event.target.classList.add('animated');
-    },
+  mounted() {
+    const tl = gsap.timeline({ reversed: true, paused: true });
+    const button = this.$el.querySelector('.button');
+    if (button) {
+      const plane = button.querySelector('.button-image');
+      tl.to(plane, {
+        x: 40,
+        y: -40,
+        duration: 0.25,
+        ease: 'slow(0.7, 0.7, false)',
+      });
+      tl.set(plane, {
+        x: -40,
+        y: 40,
+      });
+      tl.to(plane, {
+        x: 0,
+        y: 0,
+        duration: 0.3,
+      });
+      button.addEventListener('mouseenter', () => {
+        tl.play();
+      });
+      button.addEventListener('mouseleave', () => {
+        tl.reverse();
+      });
+    }
   },
 });
 </script>
@@ -122,25 +146,24 @@ export default Vue.extend({
     }
     & .button {
       @apply w-full h-12 bg-project-first flex justify-center items-center ring-4 ring-project-highlight ring-offset-4 ring-offset-project-background rounded-full;
-      @apply transition-all duration-300;
+      @apply overflow-hidden transition-all duration-300;
 
-      &:hover {
-        @apply ring-project-principal overflow-hidden;
-      }
+      //&:hover {
+      //  @apply ring-project-principal;
+      //
+      //  & .button-image {
+      //    animation-play-state: running;
+      //  }
+      //}
       & .button-text {
         @apply text-xl font-semibold mr-3;
       }
       & .button-image {
-        @apply w-5 transition-all duration-300;
-        animation-name: plane-to-top, plane-from-botton;
-        animation-duration: 0.4s, 0.5s;
-        animation-delay: 0s, 0.4s;
-        animation-play-state: paused;
-      }
-    }
-    & .animated {
-      & .button-image {
-        animation-play-state: running !important;
+        @apply w-5;
+        //animation-name: plane-to-top, plane-from-botton;
+        //animation-duration: 0.4s, 0.5s;
+        //animation-delay: 0s, 0.4s;
+        //animation-play-state: paused;
       }
     }
   }
