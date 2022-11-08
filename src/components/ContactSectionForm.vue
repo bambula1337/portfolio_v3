@@ -33,8 +33,6 @@
   </div>
 </template>
 
-<!--TODO: Rewrite animation for button icon using gsap-->
-
 <script lang="ts">
 import Vue from 'vue';
 import { gsap } from 'gsap';
@@ -102,7 +100,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .contact-section__form {
-  @apply flex flex-col relative justify-center text-center font-project-default text-project-title rounded-3xl px-14 py-20;
+  @apply w-108 flex flex-col relative justify-center text-center font-project-default text-project-title rounded-3xl px-14 py-20;
   $background: rgba(43, 43, 50, 1);
   background: $background;
   &::after {
@@ -126,7 +124,7 @@ export default Vue.extend({
     }
   }
   & .form {
-    @apply flex items-center flex-col;
+    @apply w-full flex items-center flex-col;
     & .input {
       @apply w-full outline-none border-b-2 border-project-principal text-xl mb-5 pb-2 transition-all duration-200;
       background: $background;
@@ -135,12 +133,12 @@ export default Vue.extend({
       }
     }
     & .main-inputs-wrapper {
-      @apply flex flex-col mb-16;
+      @apply w-full flex flex-col mb-16;
       & .main-inout {
       }
     }
     & .sub-inputs-wrapper {
-      @apply flex flex-col mb-10;
+      @apply w-full flex flex-col mb-10;
       & .sub-input {
       }
     }
@@ -148,44 +146,17 @@ export default Vue.extend({
       @apply w-full h-12 bg-project-first flex justify-center items-center ring-4 ring-project-highlight ring-offset-4 ring-offset-project-background rounded-full;
       @apply overflow-hidden transition-all duration-300;
 
-      //&:hover {
-      //  @apply ring-project-principal;
-      //
-      //  & .button-image {
-      //    animation-play-state: running;
-      //  }
-      //}
+      &:hover {
+        @apply ring-project-principal;
+      }
+
       & .button-text {
         @apply text-xl font-semibold mr-3;
       }
       & .button-image {
         @apply w-5;
-        //animation-name: plane-to-top, plane-from-botton;
-        //animation-duration: 0.4s, 0.5s;
-        //animation-delay: 0s, 0.4s;
-        //animation-play-state: paused;
       }
     }
-  }
-}
-
-// Button Hover Plane Animation
-
-@keyframes plane-to-top {
-  from {
-    transform: translateX(0) translateY(0);
-  }
-  to {
-    transform: translateX(3rem) translateY(-3rem);
-  }
-}
-
-@keyframes plane-from-botton {
-  0% {
-    transform: translateX(-3rem) translateY(3rem);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
   }
 }
 </style>
