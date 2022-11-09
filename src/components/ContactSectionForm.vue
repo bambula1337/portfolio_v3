@@ -102,7 +102,11 @@ export default Vue.extend({
 .contact-section__form {
   @apply w-108 flex flex-col relative justify-center text-center font-project-default text-project-title rounded-3xl px-14 py-20;
   $background: rgba(43, 43, 50, 1);
-  background: $background;
+  &::before{
+    @apply w-full h-full absolute rounded-3xl bg-no-repeat top-0 left-0 z-10;
+    content: '';
+    background: $background;
+  }
   &::after {
     @apply absolute bg-no-repeat top-0 -z-1;
     content: '';
@@ -115,7 +119,7 @@ export default Vue.extend({
     background-position: right 20%, left bottom;
   }
   & .text-wrapper {
-    @apply flex flex-col items-center mb-16;
+    @apply flex flex-col items-center mb-16 z-20;
     & .main-text {
       @apply text-4xl font-semibold mb-3;
     }
@@ -124,7 +128,7 @@ export default Vue.extend({
     }
   }
   & .form {
-    @apply w-full flex items-center flex-col;
+    @apply w-full flex items-center flex-col z-20;
     & .input {
       @apply w-full outline-none border-b-2 border-project-principal text-xl mb-5 pb-2 transition-all duration-200;
       background: $background;
