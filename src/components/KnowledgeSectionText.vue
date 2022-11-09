@@ -1,10 +1,10 @@
 <template>
-  <div class="knowledge-section__text">
+  <article class="knowledge-section__text">
     <div class="text-wrapper">
       <p class="main-text">Experiece</p>
       <p class="sub-text">My knowledge</p>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

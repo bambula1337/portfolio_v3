@@ -1,8 +1,8 @@
 <template>
-  <div class="knowledge-section">
+  <section class="knowledge-section">
     <KnowledgeSectionText class="text" />
     <KnowledgeSectionKnowledge class="knowledge" />
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

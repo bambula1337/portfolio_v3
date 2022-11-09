@@ -1,5 +1,5 @@
 <template>
-  <div class="stages-section-stages">
+  <article class="stages-section-stages">
     <div class="cards-wrapper">
       <div class="card" v-for="card in cards" :key="card.id">
         <div class="top">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

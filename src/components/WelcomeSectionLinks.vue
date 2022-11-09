@@ -1,16 +1,14 @@
 <template>
-  <div class="welcome-section-links">
+  <article class="welcome-section-links">
     <div class="logo">
-      <p class="logo-text">
-        AS
-      </p>
+      <p class="logo-text">AS</p>
     </div>
     <div class="icons-wrapper">
       <div class="icons">
-    <img class="icon" v-for="icon in links" :key="icon.id" :src="icon.logo" alt="">
+        <img class="icon" v-for="icon in links" :key="icon.id" :src="icon.logo" alt="" />
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">
@@ -43,29 +41,29 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/mixins/default_mixins.scss";
+@import '@/assets/styles/mixins/default_mixins.scss';
 
-.welcome-section-links{
+.welcome-section-links {
   @apply flex flex-col items-center text-project-principal font-project-default;
   min-height: 100px;
-  & .logo{
+  & .logo {
     @apply h-10 mb-5;
-    & .logo-text{
+    & .logo-text {
       @apply text-4xl font-semibold uppercase mt-0 mb-7 cursor-pointer transition-all duration-700;
       @include default-gradient(5px);
-      &:hover{
+      &:hover {
         @apply text-project-highlight;
         @include default-gradient(50px);
       }
     }
   }
-  & .icons-wrapper{
+  & .icons-wrapper {
     @apply flex relative items-center w-10;
     height: 85vh;
     min-height: 300px;
-    & .icons{
+    & .icons {
       @apply w-10 flex flex-col justify-center items-center bg-project-background py-5;
-      &::after{
+      &::after {
         @apply w-0.5 h-full absolute self-center top-0 bg-project-principal;
         $width: 2.5px;
         width: $width;
@@ -73,10 +71,10 @@ export default Vue.extend({
         left: calc(50% - $width);
         content: '';
       }
-      & .icon{
+      & .icon {
         @apply w-7 h-7 my-4 ring-2 ring-project-background ring-offset-4 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
 
-        &:hover{
+        &:hover {
           @apply ring-project-principal;
         }
       }

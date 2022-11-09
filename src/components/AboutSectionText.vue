@@ -1,5 +1,5 @@
 <template>
-  <div class="about-section-text">
+  <article class="about-section-text">
     <div class="top-text">
       <p class="main-text">About Me</p>
       <p class="sub-text">My personal experience</p>
@@ -9,7 +9,7 @@
         dived into it. I’ve done several courses on Udemy and a lot of courses on Vue mastery, also
         I’ve done several non-commercial projects. Currently I’m learning JWT and Typescript.</p>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

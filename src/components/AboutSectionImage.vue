@@ -1,7 +1,7 @@
 <template>
-  <div class="about-section-image">
+  <article class="about-section-image">
     <img class="image" src="@/assets/images/about_section/main.png" alt="">
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

@@ -1,9 +1,9 @@
 <template>
-  <div class="welcome-section">
+  <section class="welcome-section">
     <WelcomeSectionLinks/>
     <WelcomeSectionText/>
     <WelcomeSectionNavigation/>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

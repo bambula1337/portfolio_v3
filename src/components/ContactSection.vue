@@ -1,8 +1,8 @@
 <template>
-  <div class="contact-section__section">
+  <section class="contact-section__section">
     <ContactSectionText />
     <ContactSectionForm />
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

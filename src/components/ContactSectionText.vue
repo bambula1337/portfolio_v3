@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-section__text">
+  <article class="contact-section__text">
     <h2 class="section-name">Contact me</h2>
     <div class="text-wrapper">
       <h3 class="main-text">A project or Idea?</h3>
@@ -13,7 +13,7 @@
         <img class="icon" v-for="icon in links" :key="icon.id" :src="icon.logo" alt="" />
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

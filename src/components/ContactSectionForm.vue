@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-section__form">
+  <article class="contact-section__form">
     <div class="text-wrapper">
       <h2 class="main-text">Quick contact</h2>
       <h3 class="sub-text">In order to contact me as fast as possible, just fill these fields.</h3>
@@ -30,7 +30,7 @@
         <img src="@/assets/icons/send.svg" alt="" class="button-image" />
       </button>
     </form>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

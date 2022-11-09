@@ -1,9 +1,9 @@
 <template>
-  <div class="welcome-section-navigation">
+  <article class="welcome-section-navigation">
     <div class="dots">
       <div :class="[{'active': dot.active}, 'dot']" v-for="(dot, index) in dots" :key="index"></div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

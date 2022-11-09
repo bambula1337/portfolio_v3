@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-section-text">
+  <article class="welcome-section-text">
     <div class="text-wrapper">
       <p class="main-text">
         Welcome, I am <span class="gradient">Adm's</span>
@@ -11,7 +11,7 @@
     </div>
     <button class="button">Discover me</button>
       <img class="icon" :src="require('@/assets/icons/arrow_down.svg')" alt="">
-  </div>
+  </article>
 </template>
 
 <script lang="ts">

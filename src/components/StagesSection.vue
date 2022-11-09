@@ -1,5 +1,5 @@
 <template>
-  <div class="stage-section">
+  <section class="stage-section">
     <StagesSectionText />
     <StagesSectionStages />
     <div class="stage-background">
@@ -23,7 +23,7 @@
         <img class="plane" src="@/assets/images/stages_section/plane.svg" alt="" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <!--TODO: Rewrite gsap amimation triggers and targets to query selector correctly to prevent random animations-->

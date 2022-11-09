@@ -1,8 +1,8 @@
 <template>
-  <div class="about-section">
+  <section class="about-section">
     <AboutSectionText/>
     <AboutSectionImage/>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
