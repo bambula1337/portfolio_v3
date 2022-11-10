@@ -6,6 +6,8 @@
   </article>
 </template>
 
+<!--TODO: Create real navigation-->
+
 <script lang="ts">
 import Vue from 'vue';
 

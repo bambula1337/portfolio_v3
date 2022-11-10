@@ -1,18 +1,29 @@
 <template>
   <div id="app">
-    <router-view/>
+    <main>
+      <router-view />
+    </main>
+    <TheFooter />
   </div>
 </template>
 
 <script lang="ts">
+// TS support
 import Vue from 'vue';
 // Tailwind styles
 import '@/assets/styles/tailwind/tailwind.scss';
+// Components
+import TheFooter from '@/components/TheFooter.vue';
 
 export default Vue.extend({
   name: 'AppComponent',
+  components: {
+    TheFooter,
+  },
 });
 </script>
+
+<!--TODO: Add Smooth Scroller-->
 
 <style lang="scss">
 #app {

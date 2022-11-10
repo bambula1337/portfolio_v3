@@ -14,6 +14,8 @@
   </article>
 </template>
 
+<!--TODO: Create hover animation on card and card Component-->
+
 <script lang="ts">
 import Vue from 'vue';
 
