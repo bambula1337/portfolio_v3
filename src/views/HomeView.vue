@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
 // Sections
 import WelcomeSection from '@/components/WelcomeSection.vue';
