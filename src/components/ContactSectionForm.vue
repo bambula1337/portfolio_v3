@@ -34,7 +34,9 @@
 </template>
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
+// Gsap
 import { gsap } from 'gsap';
 
 export default Vue.extend({
@@ -67,33 +69,41 @@ export default Vue.extend({
       },
     };
   },
+  methods: {
+    gsapSetup() {
+      // Creating Timeline
+      const tl = gsap.timeline({ reversed: true, paused: true });
+      const button = this.$el.querySelector('.button');
+      // Creating Animations
+      if (button) {
+        const plane = button.querySelector('.button-image');
+        tl.to(plane, {
+          x: 40,
+          y: -40,
+          duration: 0.25,
+          ease: 'slow(0.7, 0.7, false)',
+        });
+        tl.set(plane, {
+          x: -40,
+          y: 40,
+        });
+        tl.to(plane, {
+          x: 0,
+          y: 0,
+          duration: 0.3,
+        });
+        button.addEventListener('mouseenter', () => {
+          tl.play();
+        });
+        button.addEventListener('mouseleave', () => {
+          tl.reverse();
+        });
+      }
+    },
+  },
   mounted() {
-    const tl = gsap.timeline({ reversed: true, paused: true });
-    const button = this.$el.querySelector('.button');
-    if (button) {
-      const plane = button.querySelector('.button-image');
-      tl.to(plane, {
-        x: 40,
-        y: -40,
-        duration: 0.25,
-        ease: 'slow(0.7, 0.7, false)',
-      });
-      tl.set(plane, {
-        x: -40,
-        y: 40,
-      });
-      tl.to(plane, {
-        x: 0,
-        y: 0,
-        duration: 0.3,
-      });
-      button.addEventListener('mouseenter', () => {
-        tl.play();
-      });
-      button.addEventListener('mouseleave', () => {
-        tl.reverse();
-      });
-    }
+    // Setting Up Gsap Animations
+    this.gsapSetup();
   },
 });
 </script>
@@ -102,7 +112,7 @@ export default Vue.extend({
 .contact-section__form {
   @apply w-108 flex flex-col relative justify-center text-center font-project-default text-project-title rounded-3xl px-14 py-20;
   $background: rgba(43, 43, 50, 1);
-  &::before{
+  &::before {
     @apply w-full h-full absolute rounded-3xl bg-no-repeat top-0 left-0 z-10;
     content: '';
     background: $background;

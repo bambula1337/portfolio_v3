@@ -84,6 +84,28 @@ export default Vue.extend({
       ],
     };
   },
+  methods: {
+    gsapSetup() {
+      // Creating Timeline
+      const tl = gsap.timeline({ reversed: true, paused: true });
+      // Creating Animations
+      tl.to('.knowledge-main', { height: 'auto', duration: 0.7, ease: 'slow(0.7, 0.7, false)' });
+
+      return tl;
+    },
+    openerSetup(tl: any): void {
+      // Adding ability to open and close skills
+      this.$el.querySelector('.knowledge-opener')?.addEventListener('click', () => {
+        if (tl.reversed()) {
+          tl.play();
+          this.isOpened = true;
+        } else {
+          tl.reverse();
+          this.isOpened = false;
+        }
+      });
+    },
+  },
   computed: {
     openerText() {
       if (this.isOpened) {
@@ -97,9 +119,7 @@ export default Vue.extend({
       // Calculating total Months
       const date = new Date(dateText);
       const current = new Date();
-      const months = current.getMonth()
-        - date.getMonth()
-        + 12 * (current.getFullYear() - date.getFullYear());
+      const months = current.getMonth() - date.getMonth() + 12 * (current.getFullYear() - date.getFullYear());
       // Calculating Years
       const years = Math.floor(months / 12);
       let result = '';
@@ -120,19 +140,8 @@ export default Vue.extend({
     },
   },
   mounted() {
-    // Creating Timeline
-    const tl = gsap.timeline({ reversed: true, paused: true });
-    tl.to('.knowledge-main', { height: 'auto', duration: 0.7, ease: 'slow(0.7, 0.7, false)' });
-    // Adding ability to open and close skills
-    this.$el.querySelector('.knowledge-opener')?.addEventListener('click', () => {
-      if (tl.reversed()) {
-        tl.play();
-        this.isOpened = true;
-      } else {
-        tl.reverse();
-        this.isOpened = false;
-      }
-    });
+    const tl: any = this.gsapSetup();
+    this.openerSetup(tl);
   },
 });
 </script>

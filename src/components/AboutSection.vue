@@ -1,15 +1,17 @@
 <template>
   <section class="about-section">
-    <AboutSectionText/>
-    <AboutSectionImage/>
+    <AboutSectionText />
+    <AboutSectionImage />
   </section>
 </template>
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
+// Components
 import AboutSectionText from '@/components/AboutSectionText.vue';
 import AboutSectionImage from '@/components/AboutSectionImage.vue';
-// gsap importing
+// Gsap
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -19,12 +21,14 @@ export default Vue.extend({
     AboutSectionText,
     AboutSectionImage,
   },
-  mounted() {
-    gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline();
-    tl.from(
-      '.about-section-text',
-      {
+  methods: {
+    gsapSetup() {
+      // Registering plugins
+      gsap.registerPlugin(ScrollTrigger);
+      // Creating Timeline
+      const tl = gsap.timeline();
+      // Creating Animations
+      tl.from('.about-section-text', {
         scrollTrigger: {
           trigger: '.about-section-text',
           toggleActions: 'restart none none none',
@@ -38,11 +42,8 @@ export default Vue.extend({
         },
         scale: 0.8,
         opacity: 0,
-      },
-    );
-    tl.from(
-      '.about-section-image',
-      {
+      });
+      tl.from('.about-section-image', {
         scrollTrigger: {
           trigger: '.about-section-image',
           toggleActions: 'restart none none none',
@@ -57,8 +58,12 @@ export default Vue.extend({
         },
         y: 200,
         opacity: 0,
-      },
-    );
+      });
+    },
+  },
+  mounted() {
+    // Setting Up Gsap Animations
+    this.gsapSetup();
   },
 });
 </script>

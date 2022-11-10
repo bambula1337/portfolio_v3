@@ -6,9 +6,12 @@
 </template>
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
+// Components
 import ContactSectionText from '@/components/ContactSectionText.vue';
 import ContactSectionForm from '@/components/ContactSectionForm.vue';
+// Gsap
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -18,40 +21,46 @@ export default Vue.extend({
     ContactSectionText,
     ContactSectionForm,
   },
+  methods: {
+    gsapSetup() {
+      // Registering Plugins
+      gsap.registerPlugin(ScrollTrigger);
+      // Creating Timeline
+      const tl = gsap.timeline();
+      // Creating Animations
+      tl.from('.contact-section__text', {
+        scrollTrigger: {
+          trigger: '.contact-section__section',
+          start: 'top 10%',
+          end: '+=150',
+          scrub: 1,
+          pin: '.contact-section__section',
+          pinType: 'transform',
+          pinSpacing: true,
+          id: 'text',
+        },
+        y: 200,
+        opacity: 0,
+      });
+      tl.from('.contact-section__form', {
+        scrollTrigger: {
+          trigger: '.contact-section__form',
+          start: 'top 10%',
+          end: '+=150',
+          scrub: 1,
+          id: 'form',
+          pin: '.contact-section__section',
+          pinType: 'transform',
+          pinSpacing: true,
+        },
+        y: 200,
+        opacity: 0,
+      });
+    },
+  },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline();
-
-    tl.from('.contact-section__text', {
-      scrollTrigger: {
-        trigger: '.contact-section__section',
-        start: 'top 10%',
-        end: '+=150',
-        scrub: 1,
-        pin: '.contact-section__section',
-        pinType: 'transform',
-        pinSpacing: true,
-        // markers: true,
-        id: 'text',
-      },
-      y: 200,
-      opacity: 0,
-    });
-    tl.from('.contact-section__form', {
-      scrollTrigger: {
-        trigger: '.contact-section__form',
-        start: 'top 10%',
-        end: '+=150',
-        scrub: 1,
-        // markers: true,
-        id: 'form',
-        pin: '.contact-section__section',
-        pinType: 'transform',
-        pinSpacing: true,
-      },
-      y: 200,
-      opacity: 0,
-    });
+    // Setting Up Gsap Animations
+    this.gsapSetup();
   },
 });
 </script>

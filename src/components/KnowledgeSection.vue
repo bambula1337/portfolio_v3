@@ -6,6 +6,7 @@
 </template>
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
 // Components
 import KnowledgeSectionText from '@/components/KnowledgeSectionText.vue';
@@ -20,28 +21,36 @@ export default Vue.extend({
     KnowledgeSectionText,
     KnowledgeSectionKnowledge,
   },
+  methods: {
+    gsapSetup() {
+      // Registering Plugins
+      gsap.registerPlugin(ScrollTrigger);
+      // Creating Animations
+      gsap.from('.knowledge-section__text', {
+        scrollTrigger: {
+          trigger: '.knowledge-section__text',
+          toggleActions: 'restart none none none',
+          start: 'top 110%',
+        },
+        duration: 1,
+        opacity: 0,
+        y: 40,
+      });
+      gsap.from('.knowledge-section__knowledge', {
+        scrollTrigger: {
+          trigger: '.knowledge-section__knowledge',
+          toggleActions: 'restart none none none',
+          start: 'top 110%',
+        },
+        duration: 1.5,
+        opacity: 0,
+        y: 40,
+      });
+    },
+  },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.knowledge-section__text', {
-      scrollTrigger: {
-        trigger: '.knowledge-section__text',
-        toggleActions: 'restart none none none',
-        start: 'top 110%',
-      },
-      duration: 1,
-      opacity: 0,
-      y: 40,
-    });
-    gsap.from('.knowledge-section__knowledge', {
-      scrollTrigger: {
-        trigger: '.knowledge-section__knowledge',
-        toggleActions: 'restart none none none',
-        start: 'top 110%',
-      },
-      duration: 1.5,
-      opacity: 0,
-      y: 40,
-    });
+    // Setting Up Gsap Animations
+    this.gsapSetup();
   },
 });
 </script>

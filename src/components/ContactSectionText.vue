@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
 
 export default Vue.extend({
