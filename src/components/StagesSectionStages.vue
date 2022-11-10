@@ -17,6 +17,7 @@
 <!--TODO: Create hover animation on card and card Component-->
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
 
 export default Vue.extend({

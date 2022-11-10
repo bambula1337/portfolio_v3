@@ -6,10 +6,12 @@
   </section>
 </template>
 
-<!--TODO: Change Icons and add href with a tag on them-->
+<!-- TODO: Change Icons and add href with a tag on them -->
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
+// Components
 import WelcomeSectionLinks from '@/components/WelcomeSectionLinks.vue';
 import WelcomeSectionText from '@/components/WelcomeSectionText.vue';
 import WelcomeSectionNavigation from '@/components/WelcomeSectionNavigation.vue';

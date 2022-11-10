@@ -29,10 +29,12 @@
 <!--TODO: Rewrite gsap amimation triggers and targets to query selector correctly to prevent random animations-->
 
 <script lang="ts">
+// TS Support
 import Vue from 'vue';
+// Components
 import StagesSectionText from '@/components/StagesSectionText.vue';
 import StagesSectionStages from '@/components/StagesSectionStages.vue';
-// gsap importing
+// Gsap
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -45,66 +47,74 @@ export default Vue.extend({
     StagesSectionText,
     StagesSectionStages,
   },
+  methods: {
+    gsapSetup() {
+      // Registering Plugins
+      gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
+      // Have to refresh because in some browsers ScrollTrigger animation brakes after reloads
+      ScrollTrigger.refresh();
+      // Creating Timeline
+      const tl = gsap.timeline();
+      // Creating Animations
+      tl.from('.stage-section-text', {
+        scrollTrigger: {
+          trigger: '.stage-section-text',
+          toggleActions: 'restart none none none',
+          scrub: 1,
+          start: 'top 40%',
+          end: '+=150',
+          // markers: true,
+          pin: '.stages-section',
+          pinType: 'transform',
+          pinSpacing: true,
+        },
+        scale: 0.8,
+        x: -100,
+        opacity: 0,
+      });
+      tl.from('.card', {
+        scrollTrigger: {
+          trigger: '.stages-section-stages',
+          toggleActions: 'restart none none none',
+          scrub: 1,
+          start: '50% 40%',
+          end: '+=700',
+          // markers: true,
+          pin: '.stages-section',
+          pinType: 'transform',
+          pinSpacing: true,
+        },
+        stagger: 1,
+        y: 50,
+        opacity: 0,
+      });
+      gsap.from('.background-image', {
+        scrollTrigger: {
+          trigger: '.stage-section-text',
+          start: 'top 0%',
+          end: '+=550',
+          scrub: 5,
+        },
+        drawSVG: 0,
+      });
+      gsap.to('.stage-background-plane-wrapper', {
+        scrollTrigger: {
+          trigger: '.stage-section-text',
+          start: 'top 0%',
+          end: '+=500',
+          scrub: 5,
+        },
+        motionPath: {
+          path: '.background-image',
+          autoRotate: true,
+        },
+        top: '20',
+        left: '-20px',
+      });
+    },
+  },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
-    // Have to refresh because in some browsers ScrollTrigger animation brakes after reloas
-    ScrollTrigger.refresh();
-    const tl = gsap.timeline();
-    tl.from('.stage-section-text', {
-      scrollTrigger: {
-        trigger: '.stage-section-text',
-        toggleActions: 'restart none none none',
-        scrub: 1,
-        start: 'top 40%',
-        end: '+=150',
-        // markers: true,
-        pin: '.stages-section',
-        pinType: 'transform',
-        pinSpacing: true,
-      },
-      scale: 0.8,
-      x: -100,
-      opacity: 0,
-    });
-    tl.from('.card', {
-      scrollTrigger: {
-        trigger: '.stages-section-stages',
-        toggleActions: 'restart none none none',
-        scrub: 1,
-        start: '50% 40%',
-        end: '+=700',
-        // markers: true,
-        pin: '.stages-section',
-        pinType: 'transform',
-        pinSpacing: true,
-      },
-      stagger: 1,
-      y: 50,
-      opacity: 0,
-    });
-    gsap.from('.background-image', {
-      scrollTrigger: {
-        trigger: '.stage-section-text',
-        start: 'top 0%',
-        end: '+=550',
-        scrub: 5,
-      },
-      drawSVG: 0,
-    });
-    gsap.to('.stage-background-plane-wrapper', {
-      scrollTrigger: {
-        trigger: '.stage-section-text',
-        start: 'top 0%',
-        end: '+=500',
-        scrub: 5,
-      },
-      motionPath: {
-        path: '.background-image',
-        autoRotate: true,
-      },
-      top: '20',
-      left: '-20px',
-    });
+    this.gsapSetup();
   },
 });
 </script>
