@@ -6,7 +6,8 @@
   </section>
 </template>
 
-<!-- TODO: Change Icons and add href with a tag on them -->
+<!-- TODO: Change Icons and add href with a tag on them
+           Create Appearing Anumations with gsap-->
 
 <script lang="ts">
 // TS Support

@@ -25,10 +25,15 @@ export default Vue.extend({
     gsapSetup() {
       // Registering Plugins
       gsap.registerPlugin(ScrollTrigger);
+      // Selecting Targets
+      const targets = {
+        text: this.$el.querySelector('.knowledge-section__text'),
+        knowledge: this.$el.querySelector('.knowledge-section__knowledge'),
+      };
       // Creating Animations
-      gsap.from('.knowledge-section__text', {
+      gsap.from(targets.text, {
         scrollTrigger: {
-          trigger: '.knowledge-section__text',
+          trigger: targets.text,
           toggleActions: 'restart none none none',
           start: 'top 110%',
         },
@@ -36,7 +41,7 @@ export default Vue.extend({
         opacity: 0,
         y: 40,
       });
-      gsap.from('.knowledge-section__knowledge', {
+      gsap.from(targets.knowledge, {
         scrollTrigger: {
           trigger: '.knowledge-section__knowledge',
           toggleActions: 'restart none none none',

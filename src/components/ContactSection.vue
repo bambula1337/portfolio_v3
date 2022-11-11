@@ -27,29 +27,30 @@ export default Vue.extend({
       gsap.registerPlugin(ScrollTrigger);
       // Creating Timeline
       const tl = gsap.timeline();
+      // Selecting Targets
+      const targets = {
+        section: this.$el,
+        text: this.$el.querySelector('.contact-section__text'),
+        form: this.$el.querySelector('.contact-section__form'),
+      };
       // Creating Animations
-      tl.from('.contact-section__text', {
+      tl.from(targets.text, {
         scrollTrigger: {
-          trigger: '.contact-section__section',
+          trigger: targets.section,
           start: 'top 40%',
           end: '+=200',
           scrub: 1,
-          pin: '.contact-section__section',
-          pinType: 'transform',
-          pinSpacing: true,
-          id: 'text',
         },
         y: 200,
         opacity: 0,
       });
-      tl.from('.contact-section__form', {
+      tl.from(targets.form, {
         scrollTrigger: {
-          trigger: '.contact-section__text',
+          trigger: targets.form,
           start: 'top 35%',
           end: '+=200',
           scrub: 1,
-          id: 'form',
-          pin: '.contact-section__section',
+          pin: targets.section,
           pinType: 'transform',
           pinSpacing: true,
         },

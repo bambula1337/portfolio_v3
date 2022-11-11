@@ -26,8 +26,6 @@
   </section>
 </template>
 
-<!--TODO: Rewrite gsap amimation triggers and targets to query selector correctly to prevent random animations-->
-
 <script lang="ts">
 // TS Support
 import Vue from 'vue';

@@ -27,32 +27,31 @@ export default Vue.extend({
       gsap.registerPlugin(ScrollTrigger);
       // Creating Timeline
       const tl = gsap.timeline();
+      // Selecting Targets
+      const targets = {
+        section: this.$el,
+        text: this.$el.querySelector('.about-section-text'),
+        image: this.$el.querySelector('.about-section-image'),
+      };
       // Creating Animations
-      tl.from('.about-section-text', {
+      tl.from(targets.text, {
         scrollTrigger: {
-          trigger: '.about-section-text',
-          toggleActions: 'restart none none none',
           scrub: 1,
           start: 'top 40%',
           end: '+=150',
-          // markers: true,
-          pin: '.about-section',
+          pin: targets.section,
           pinType: 'transform',
           pinSpacing: true,
         },
         scale: 0.8,
         opacity: 0,
       });
-      tl.from('.about-section-image', {
+      tl.from(targets.image, {
         scrollTrigger: {
-          trigger: '.about-section-image',
-          toggleActions: 'restart none none none',
           scrub: 1,
           start: '5% 40%',
           end: '+=150',
-          id: 'image',
-          // markers: true,
-          pin: '.about-section',
+          pin: targets.section,
           pinType: 'transform',
           pinSpacing: true,
         },

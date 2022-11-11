@@ -73,29 +73,32 @@ export default Vue.extend({
     gsapSetup() {
       // Creating Timeline
       const tl = gsap.timeline({ reversed: true, paused: true });
-      const button = this.$el.querySelector('.button');
+      // Selecting Targets
+      const targets = {
+        button: this.$el.querySelector('.button'),
+        plane: this.$el.querySelector('.button-image'),
+      };
       // Creating Animations
-      if (button) {
-        const plane = button.querySelector('.button-image');
-        tl.to(plane, {
+      if (targets.button) {
+        tl.to(targets.plane, {
           x: 40,
           y: -40,
           duration: 0.25,
           ease: 'slow(0.7, 0.7, false)',
         });
-        tl.set(plane, {
+        tl.set(targets.plane, {
           x: -40,
           y: 40,
         });
-        tl.to(plane, {
+        tl.to(targets.plane, {
           x: 0,
           y: 0,
           duration: 0.3,
         });
-        button.addEventListener('mouseenter', () => {
+        targets.button.addEventListener('mouseenter', () => {
           tl.play();
         });
-        button.addEventListener('mouseleave', () => {
+        targets.button.addEventListener('mouseleave', () => {
           tl.reverse();
         });
       }

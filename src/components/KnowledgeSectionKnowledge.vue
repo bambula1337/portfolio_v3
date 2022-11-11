@@ -88,8 +88,12 @@ export default Vue.extend({
     gsapSetup() {
       // Creating Timeline
       const tl = gsap.timeline({ reversed: true, paused: true });
+      // Selecting Targets
+      const targets = {
+        knowledgeMain: this.$el.querySelector('.knowledge-main'),
+      };
       // Creating Animations
-      tl.to('.knowledge-main', { height: 'auto', duration: 0.7, ease: 'slow(0.7, 0.7, false)' });
+      tl.to(targets.knowledgeMain, { height: 'auto', duration: 0.7, ease: 'slow(0.7, 0.7, false)' });
 
       return tl;
     },
