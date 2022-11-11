@@ -7,7 +7,8 @@
 </template>
 
 <!-- TODO: Change Icons and add href with a tag on them
-           Create Appearing Anumations with gsap-->
+           Create Appearing Anumations with gsap
+           Create Bottom Glow-->
 
 <script lang="ts">
 // TS Support
