@@ -31,8 +31,8 @@ export default Vue.extend({
       tl.from('.contact-section__text', {
         scrollTrigger: {
           trigger: '.contact-section__section',
-          start: 'top 10%',
-          end: '+=150',
+          start: 'top 40%',
+          end: '+=200',
           scrub: 1,
           pin: '.contact-section__section',
           pinType: 'transform',
@@ -44,9 +44,9 @@ export default Vue.extend({
       });
       tl.from('.contact-section__form', {
         scrollTrigger: {
-          trigger: '.contact-section__form',
-          start: 'top 10%',
-          end: '+=150',
+          trigger: '.contact-section__text',
+          start: 'top 35%',
+          end: '+=200',
           scrub: 1,
           id: 'form',
           pin: '.contact-section__section',
