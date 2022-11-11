@@ -55,16 +55,22 @@ export default Vue.extend({
       ScrollTrigger.refresh();
       // Creating Timeline
       const tl = gsap.timeline();
+      // Selecting Targets
+      const targets = {
+        section: this.$el,
+        text: this.$el.querySelector('.stage-section-text'),
+        stages: this.$el.querySelector('.stages-section-stages'),
+        cards: this.$el.querySelectorAll('.card'),
+        background: this.$el.querySelector('.background-image'),
+        plane: this.$el.querySelector('.stage-background-plane-wrapper'),
+      };
       // Creating Animations
-      tl.from('.stage-section-text', {
+      tl.from(targets.text, {
         scrollTrigger: {
-          trigger: '.stage-section-text',
-          toggleActions: 'restart none none none',
           scrub: 1,
           start: 'top 40%',
           end: '+=150',
-          // markers: true,
-          pin: '.stages-section',
+          pin: targets.section,
           pinType: 'transform',
           pinSpacing: true,
         },
@@ -72,15 +78,13 @@ export default Vue.extend({
         x: -100,
         opacity: 0,
       });
-      tl.from('.card', {
+      tl.from(targets.cards, {
         scrollTrigger: {
-          trigger: '.stages-section-stages',
-          toggleActions: 'restart none none none',
+          trigger: targets.stages,
           scrub: 1,
           start: '50% 40%',
           end: '+=700',
-          // markers: true,
-          pin: '.stages-section',
+          pin: targets.section,
           pinType: 'transform',
           pinSpacing: true,
         },
@@ -88,16 +92,16 @@ export default Vue.extend({
         y: 50,
         opacity: 0,
       });
-      gsap.from('.background-image', {
+      gsap.from(targets.background, {
         scrollTrigger: {
-          trigger: '.stage-section-text',
+          trigger: targets.text,
           start: 'top 0%',
           end: '+=550',
           scrub: 5,
         },
         drawSVG: 0,
       });
-      gsap.to('.stage-background-plane-wrapper', {
+      gsap.to(targets.plane, {
         scrollTrigger: {
           trigger: '.stage-section-text',
           start: 'top 0%',
