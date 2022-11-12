@@ -5,8 +5,10 @@
         class="card"
         v-for="card in cards"
         :key="card.id"
-        @mousemove="skew"
-        @focus="skew"
+        @mousemove="rotateEnter"
+        @focus="rotateEnter"
+        @mouseleave="rotateLeave"
+        @focusout="rotateLeave"
       >
         <div class="top">
           <p class="number">{{ card.id | numberOfCard }}</p>
@@ -32,6 +34,7 @@ export default Vue.extend({
   name: 'StagesSectionStages',
   data() {
     return {
+      minimalRotation: 15,
       cards: [
         {
           id: 1,
@@ -52,20 +55,43 @@ export default Vue.extend({
     };
   },
   methods: {
-    skew(event: MouseEvent) {
-      console.log(event.target);
-      const width = event.target.clientWidth;
-      const height = event.target.clientHeight;
-      const posX = event.clientX - event.originalTarget.offsetLeft;
-      const posY = event.clientY - event.originalTarget.offsetTop;
-      const skewX = (width - posX) / 50;
-      // event.target.style.skewX = `${posX}deg`;
-      console.log(`x = ${posX}, y = ${posY}`);
-      console.log(event);
-      gsap.to(event.target, {
-        skewX,
-        duration: 1,
-      });
+    rotateEnter(event: MouseEvent) {
+      if (event.target.className === 'card') {
+        const width = event.target.clientWidth;
+        const posX = event.clientX - event.originalTarget.offsetLeft;
+        const posY = event.layerY - event.originalTarget.offsetTop;
+        const rotateX = (posY + 66) / -this.minimalRotation;
+        const rotateY = (width / 2 - posX) / this.minimalRotation;
+        gsap.to(event.target, {
+          rotateX,
+          rotateY,
+          scale: 1.1,
+          duration: 1,
+        });
+      } else {
+        const target = event.target.closest('.card');
+        const width = target.offsetWidth;
+        const posX = event.clientX - target.offsetLeft;
+        const posY = event.layerY - target.offsetTop;
+        const rotateX = (posY + 66) / -this.minimalRotation;
+        const rotateY = (width / 2 - posX) / this.minimalRotation;
+        console.log(posY);
+        gsap.to(target, {
+          rotateX,
+          rotateY,
+          duration: 1,
+        });
+      }
+    },
+    rotateLeave(event: MouseEvent) {
+      if (event.target.className === 'card') {
+        gsap.to(event.target, {
+          rotateX: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 1,
+        });
+      }
     },
   },
   filters: {
@@ -88,7 +114,7 @@ export default Vue.extend({
     @apply w-full flex justify-between flex-wrap text-left text-project-title font-project-default px-26;
     & .card {
       @apply w-80 bg-project-background border-2 border-project-title rounded-2xl py-3 px-5;
-      //transform: skewX(5deg) skewY(5deg);
+      transform: perspective(500px);
       & .top {
         & .number {
           @apply inline text-2xl;
