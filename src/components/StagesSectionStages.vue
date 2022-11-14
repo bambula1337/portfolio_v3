@@ -5,10 +5,10 @@
         class="card"
         v-for="card in cards"
         :key="card.id"
-        @mousemove="rotateEnter"
-        @focus="rotateEnter"
-        @mouseleave="rotateLeave"
-        @focusout="rotateLeave"
+        @mousemove="cardMove"
+        @focus="cardMove"
+        @mouseleave="cardLeave"
+        @focusout="cardLeave"
       >
         <div class="top">
           <p class="number">{{ card.id | numberOfCard }}</p>
@@ -55,43 +55,37 @@ export default Vue.extend({
     };
   },
   methods: {
-    rotateEnter(event: MouseEvent) {
-      if (event.target.className === 'card') {
-        const width = event.target.clientWidth;
-        const posX = event.clientX - event.originalTarget.offsetLeft;
-        const posY = event.layerY - event.originalTarget.offsetTop;
-        const rotateX = (posY + 66) / -this.minimalRotation;
-        const rotateY = (width / 2 - posX) / this.minimalRotation;
-        gsap.to(event.target, {
-          rotateX,
-          rotateY,
-          scale: 1.1,
-          duration: 1,
-        });
-      } else {
-        const target = event.target.closest('.card');
-        const width = target.offsetWidth;
-        const posX = event.clientX - target.offsetLeft;
-        const posY = event.layerY - target.offsetTop;
-        const rotateX = (posY + 66) / -this.minimalRotation;
-        const rotateY = (width / 2 - posX) / this.minimalRotation;
-        console.log(posY);
-        gsap.to(target, {
-          rotateX,
-          rotateY,
-          duration: 1,
-        });
+    cardMove(event: any) {
+      let { target } = event;
+      if (target.className !== 'card') {
+        target = target.closest('.card');
       }
+      const width = target.clientWidth;
+      const height = target.clientHeight;
+      const rect = target.getBoundingClientRect();
+      const posX = event.clientX - rect.left;
+      const posY = event.clientY - rect.top;
+      const rotateX = (height / 2 - posY) / -this.minimalRotation;
+      const rotateY = (width / 2 - posX) / this.minimalRotation;
+      // Animate
+      gsap.to(target, {
+        rotateX,
+        rotateY,
+        scale: 1.1,
+        duration: 1,
+      });
     },
-    rotateLeave(event: MouseEvent) {
-      if (event.target.className === 'card') {
-        gsap.to(event.target, {
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          duration: 1,
-        });
+    cardLeave(event: any) {
+      let { target } = event;
+      if (event.target.className !== 'card') {
+        target = target.closest('.card');
       }
+      gsap.to(target, {
+        rotateX: 0,
+        rotateY: 0,
+        scale: 1,
+        duration: 1,
+      });
     },
   },
   filters: {
@@ -117,6 +111,9 @@ export default Vue.extend({
       $width: 20rem;
       width: $width;
       transform: perspective($width);
+      &:hover{
+        @apply border-project-highlight;
+      }
       & .top {
         & .number {
           @apply inline text-2xl;
