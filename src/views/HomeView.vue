@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <WelcomeSection class="welcome-section" />
-    <AboutSection class="about-section" />
-    <StagesSection class="stages-section" />
-    <KnowledgeSection class="knowledge-section" />
-    <ContactSection class="contact-section" />
+    <WelcomeSection class="welcome-section section" />
+    <AboutSection class="about-section section" />
+    <StagesSection class="stages-section section" />
+    <KnowledgeSection class="knowledge-section section" />
+    <ContactSection class="contact-section section" />
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .home {
-  @apply flex flex-col overflow-x-hidden pb-220;
+  @apply flex flex-col overflow-x-hidden pb-100;
 
   & .welcome-section {
     @apply mb-72;
