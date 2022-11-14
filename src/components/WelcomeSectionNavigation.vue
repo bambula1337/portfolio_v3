@@ -1,7 +1,14 @@
 <template>
   <article class="welcome-section-navigation">
     <div class="dots">
-      <a :href="`#${dot.id}`" class="dot" v-for="(dot, index) in dots" :key="index">x</a>
+      <a
+        :href="`#${dot.id}`"
+        class="dot"
+        v-for="(dot, index) in dots"
+        :key="index"
+        @click.prevent="scrollTo(`#${dot.id}`)"
+        >.</a
+      >
     </div>
   </article>
 </template>
@@ -11,6 +18,9 @@
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
+// Gsap
+import { gsap } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 export default Vue.extend({
   name: 'WelcomeSectionNavigation',
@@ -18,6 +28,11 @@ export default Vue.extend({
     return {
       dots: [],
     };
+  },
+  methods: {
+    scrollTo(url: string) {
+      gsap.to(window, { duration: 2, scrollTo: url, ease: 'circ.out' });
+    },
   },
   mounted() {
     const sections = Array.from(document.querySelectorAll('.section'));
@@ -36,11 +51,12 @@ export default Vue.extend({
           }
         });
       },
-      { threshold: 0 },
+      { threshold: 0, rootMargin: '0px 0px -60% 0px' },
     );
     sections.forEach((e) => {
       observer.observe(e);
     });
+    gsap.registerPlugin(ScrollToPlugin);
   },
 });
 </script>
@@ -49,7 +65,8 @@ export default Vue.extend({
 .welcome-section-navigation {
   @apply w-14 text-project-title;
   & .dots {
-    @apply flex relative flex-col items-center;
+    @apply w-10 flex relative flex-col items-center z-10;
+    font-size: 0px;
     &:hover::after {
       @apply opacity-100;
     }
@@ -61,7 +78,7 @@ export default Vue.extend({
     }
 
     & .dot {
-      @apply w-3.5 h-3.5 bg-project-principal m-5 rounded-full cursor-pointer;
+      @apply w-3.5 h-3.5 bg-project-principal m-5 rounded-full transition-all duration-1000 cursor-pointer;
       z-index: 2;
     }
 
