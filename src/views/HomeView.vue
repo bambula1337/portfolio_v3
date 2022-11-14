@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <WelcomeSection class="welcome-section section" />
-    <AboutSection class="about-section section" />
-    <StagesSection class="stages-section section" />
-    <KnowledgeSection class="knowledge-section section" />
-    <ContactSection class="contact-section section" />
+    <WelcomeSection class="welcome-section section" id="welcome" />
+    <AboutSection class="about-section section" id="about"/>
+    <StagesSection class="stages-section section" id="stages"/>
+    <KnowledgeSection class="knowledge-section section" id="knowledge"/>
+    <ContactSection class="contact-section section" id="contact"/>
   </div>
 </template>
 

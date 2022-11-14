@@ -1,7 +1,7 @@
 <template>
   <article class="welcome-section-navigation">
     <div class="dots">
-      <div :class="[{'active': dot.active}, 'dot']" v-for="(dot, index) in dots" :key="index"></div>
+      <a :href="`#${dot.id}`" class="dot" v-for="(dot, index) in dots" :key="index">x</a>
     </div>
   </article>
 </template>
@@ -16,21 +16,31 @@ export default Vue.extend({
   name: 'WelcomeSectionNavigation',
   data() {
     return {
-      dots: [
-        {
-          active: true,
-        },
-        {
-          active: false,
-        },
-        {
-          active: false,
-        },
-        {
-          active: false,
-        },
-      ],
+      dots: [],
     };
+  },
+  mounted() {
+    const sections = Array.from(document.querySelectorAll('.section'));
+    this.dots = sections;
+    // console.log(Array.from(sections));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const selector = `#${entry.target.id}`;
+            const el = this.$el.querySelector(`[href='${selector}']`);
+            this.$el.querySelectorAll('.dot').forEach((dot) => {
+              dot.classList.remove('active');
+            });
+            el?.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0 },
+    );
+    sections.forEach((e) => {
+      observer.observe(e);
+    });
   },
 });
 </script>
