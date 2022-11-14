@@ -113,8 +113,10 @@ export default Vue.extend({
   & .cards-wrapper {
     @apply w-full flex justify-between flex-wrap text-left text-project-title font-project-default px-26;
     & .card {
-      @apply w-80 bg-project-background border-2 border-project-title rounded-2xl py-3 px-5;
-      transform: perspective(500px);
+      @apply bg-project-background border-2 border-project-title rounded-2xl py-3 px-5;
+      $width: 20rem;
+      width: $width;
+      transform: perspective($width);
       & .top {
         & .number {
           @apply inline text-2xl;
