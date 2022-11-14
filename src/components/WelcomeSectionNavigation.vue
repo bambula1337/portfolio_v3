@@ -13,7 +13,7 @@
   </article>
 </template>
 
-<!--TODO: Create real navigation-->
+<!--TODO: Refactor-->
 
 <script lang="ts">
 // TS Support
