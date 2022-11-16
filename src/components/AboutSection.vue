@@ -63,6 +63,7 @@ export default Vue.extend({
   mounted() {
     // Setting Up Gsap Animations
     this.gsapSetup();
+    const x = 3;
   },
 });
 </script>

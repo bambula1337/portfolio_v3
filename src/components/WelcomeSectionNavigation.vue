@@ -13,8 +13,6 @@
   </article>
 </template>
 
-<!--TODO: Refactor-->
-
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
@@ -30,33 +28,40 @@ export default Vue.extend({
     };
   },
   methods: {
-    scrollTo(url: string) {
-      gsap.to(window, { duration: 2, scrollTo: url, ease: 'circ.out' });
+    scrollTo(selector: string) {
+      gsap.to(window, { duration: 2, scrollTo: selector, ease: 'circ.out' });
+    },
+    navigationSetup() {
+      // Selecting Sections
+      const sections = Array.from(document.querySelectorAll('.section'));
+      this.dots = sections;
+      // Creating Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const selector = `#${entry.target.id}`;
+              const el = this.$el.querySelector(`[href='${selector}']`);
+              this.$el.querySelectorAll('.dot')?.forEach((dot) => {
+                dot.classList.remove('active');
+              });
+              el?.classList.add('active');
+            }
+          });
+        },
+        { threshold: 0, rootMargin: '0px 0px -60% 0px' },
+      );
+      sections.forEach((e) => {
+        observer.observe(e);
+      });
+    },
+    gsapSetup() {
+      gsap.registerPlugin(ScrollToPlugin);
     },
   },
   mounted() {
-    const sections = Array.from(document.querySelectorAll('.section'));
-    this.dots = sections;
-    // console.log(Array.from(sections));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const selector = `#${entry.target.id}`;
-            const el = this.$el.querySelector(`[href='${selector}']`);
-            this.$el.querySelectorAll('.dot').forEach((dot) => {
-              dot.classList.remove('active');
-            });
-            el?.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0, rootMargin: '0px 0px -60% 0px' },
-    );
-    sections.forEach((e) => {
-      observer.observe(e);
-    });
-    gsap.registerPlugin(ScrollToPlugin);
+    this.navigationSetup();
+    this.gsapSetup();
   },
 });
 </script>

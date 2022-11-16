@@ -42,10 +42,10 @@ export default Vue.extend({
   }
 
   & .stage-section{
-    @apply mb-120;
+    @apply mb-100;
   }
   & .knowledge-section{
-    @apply mb-100;
+    @apply pt-30 mb-100;
   }
 }
 </style>
