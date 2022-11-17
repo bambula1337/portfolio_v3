@@ -23,8 +23,6 @@ export default Vue.extend({
 });
 </script>
 
-<!--TODO: Add Smooth Scroller-->
-
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
