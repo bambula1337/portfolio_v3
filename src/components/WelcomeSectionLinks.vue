@@ -14,6 +14,8 @@
   </article>
 </template>
 
+<!--TODO: Link Background Fix-->
+
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
