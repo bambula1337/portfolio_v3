@@ -6,7 +6,7 @@
   </section>
 </template>
 
-<!-- TODO: Change Icons and add href with a tag on them
+<!-- TODO: Change Icons and add href with a tag on them linkedin instagram github
            Create Appearing Animations with gsap
            Create Bottom Glow-->
 
