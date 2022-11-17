@@ -5,7 +5,10 @@
     </div>
     <div class="icons-wrapper">
       <div class="icons">
-        <img class="icon" v-for="icon in links" :key="icon.id" :src="icon.logo" alt="" />
+        <a class="link" target="_blank" :href="link.url" v-for="link in links" :key="link.id">
+          <img class="icon" :src="link.logo" alt="" />
+          <p class="name">{{link.name}}</p>
+        </a>
       </div>
     </div>
   </article>
@@ -22,18 +25,21 @@ export default Vue.extend({
       links: [
         {
           id: 1,
-          logo: require('@/assets/icons/instagram.svg'),
-          url: 'someUrl',
+          name: 'LinkedIn',
+          logo: require('@/assets/icons/icon_linkedin.svg'),
+          url: 'https://www.linkedin.com/in/oleg-golevitch-2a04b4250/',
         },
         {
           id: 2,
-          logo: require('@/assets/icons/icon_Bem.svg'),
-          url: 'someUrl',
+          name: 'Github',
+          logo: require('@/assets/icons/icon_github.svg'),
+          url: 'https://github.com/bambula1337',
         },
         {
           id: 3,
-          logo: require('@/assets/icons/Ball.svg'),
-          url: 'someUrl',
+          name: 'Instagram',
+          logo: require('@/assets/icons/icon_instagram.svg'),
+          url: 'https://www.instagram.com/adms_dev/',
         },
       ],
     };
@@ -72,11 +78,14 @@ export default Vue.extend({
         left: calc(50% - $width);
         content: '';
       }
-      & .icon {
-        @apply w-7 h-7 my-4 ring-2 ring-project-background ring-offset-4 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
+      & .link{
+        font-size: 0;
+        & .icon {
+          @apply w-8 h-8 my-4 ring-2 ring-project-background ring-offset-2 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
 
-        &:hover {
-          @apply ring-project-principal;
+          &:hover {
+            @apply ring-project-principal;
+          }
         }
       }
     }

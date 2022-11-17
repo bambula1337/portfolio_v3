@@ -27,18 +27,18 @@ export default Vue.extend({
       links: [
         {
           id: 1,
-          logo: require('@/assets/icons/instagram.svg'),
-          url: 'someUrl',
+          logo: require('@/assets/icons/icon_linkedin.svg'),
+          url: 'https://www.linkedin.com/in/oleg-golevitch-2a04b4250/',
         },
         {
           id: 2,
-          logo: require('@/assets/icons/icon_Bem.svg'),
-          url: 'someUrl',
+          logo: require('@/assets/icons/icon_github.svg'),
+          url: 'https://github.com/bambula1337',
         },
         {
           id: 3,
-          logo: require('@/assets/icons/Ball.svg'),
-          url: 'someUrl',
+          logo: require('@/assets/icons/icon_instagram.svg'),
+          url: 'https://www.instagram.com/adms_dev/',
         },
       ],
     };
@@ -74,7 +74,7 @@ export default Vue.extend({
     & .icons {
       @apply flex bg-project-background;
       & .icon {
-        @apply w-7 h-7 mx-4 ring-2 ring-project-background ring-offset-4 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
+        @apply w-8 h-8 mx-4 ring-2 ring-project-background ring-offset-2 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
 
         &:hover {
           @apply ring-project-principal;
