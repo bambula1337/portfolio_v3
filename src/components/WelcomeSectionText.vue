@@ -5,8 +5,9 @@
         Welcome, I am <span class="gradient">Adm's</span>
       </p>
       <p class="sub-text">
-        Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
+        <span>Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
         enthusiastic and kind person.
+        </span>
       </p>
     </div>
     <button class="button" @click="discover">Discover me</button>
@@ -20,6 +21,8 @@ import Vue from 'vue';
 // Gsap
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+// eslint-disable-next-line import/extensions
+import { SplitText } from '@/assets/gsap/SplitText.js';
 
 export default Vue.extend({
   name: 'WelcomeSectionText',
@@ -31,10 +34,16 @@ export default Vue.extend({
   methods: {
     gsapSetup() {
       // Registering Plugins
-      gsap.registerPlugin(ScrollToPlugin);
+      gsap.registerPlugin(ScrollToPlugin, SplitText);
       // Selecting Target
       const secondSection = document.querySelectorAll('.section')[1];
       this.secondSectionId = secondSection?.id;
+      const subText = new SplitText('.sub-text');
+      const mainText = new SplitText('.main-text');
+      gsap.from(mainText.chars, { opacity: 0.3, duration: 0.2, stagger: 0.1 });
+      gsap.from(subText.words, {
+        opacity: 0, y: 50, duration: 0.3, stagger: 0.2,
+      });
     },
     discover() {
       gsap.to(window, { duration: 1.5, scrollTo: `#${this.secondSectionId}`, ease: 'circ.out' });

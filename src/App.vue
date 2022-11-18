@@ -7,6 +7,8 @@
   </div>
 </template>
 
+<!-- TODO: Smooth Scroll -->
+
 <script lang="ts">
 // TS support
 import Vue from 'vue';
