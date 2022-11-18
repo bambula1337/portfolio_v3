@@ -7,8 +7,7 @@
   </section>
 </template>
 
-<!-- TODO: Create Appearing Animations with gsap
-           Added Discover button and arrow actions -->
+<!-- TODO: Create Appearing Animations with gsap -->
 
 <script lang="ts">
 // TS Support
