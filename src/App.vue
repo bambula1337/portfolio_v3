@@ -21,6 +21,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // eslint-disable-next-line import/extensions
 import { ScrollSmoother } from '@/assets/gsap/ScrollSmoother.js';
+// eslint-disable-next-line import/extensions
 import { SplitText } from '@/assets/gsap/SplitText.js';
 
 export default Vue.extend({
