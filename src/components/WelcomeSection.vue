@@ -7,7 +7,8 @@
   </section>
 </template>
 
-<!-- TODO: Create Appearing Animations with gsap -->
+<!-- TODO: Create Appearing Animations with gsap
+           Fix Glow -->
 
 <script lang="ts">
 // TS Support
@@ -36,15 +37,16 @@ export default Vue.extend({
         background: this.$el.querySelector('.background'),
       };
       // Creating Animation
-      gsap.to(targets.background, {
-        scrollTrigger: {
-          start: '-5% -5%',
-          end: '10% 0%',
-          toggleActions: 'play reverse play none',
-        },
-        opacity: 1,
-        duration: 1,
-      });
+      // gsap.to(targets.background, {
+      //   scrollTrigger: {
+      //     start: '-5% -5%',
+      //     end: '10%, 0%',
+      //     toggleActions: 'play reverse play none',
+      //     pin: '#app',
+      //   },
+      //   opacity: 1,
+      //   duration: 1,
+      // });
     },
   },
   mounted() {

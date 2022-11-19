@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <main>
+    <main id="main">
       <router-view />
     </main>
     <TheFooter />
@@ -14,11 +14,30 @@ import Vue from 'vue';
 import '@/assets/styles/tailwind/tailwind.scss';
 // Components
 import TheFooter from '@/components/TheFooter.vue';
+// Gsap
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// eslint-disable-next-line import/extensions
+import { ScrollSmoother } from '@/assets/gsap/ScrollSmoother.js';
 
 export default Vue.extend({
   name: 'AppComponent',
   components: {
     TheFooter,
+  },
+  methods: {
+    gsapSetup() {
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+      const smoother = ScrollSmoother.create({
+        wrapper: '#app',
+        content: '#main',
+        smooth: 2,
+        effects: true,
+      });
+    },
+  },
+  mounted() {
+    this.gsapSetup();
   },
 });
 </script>
