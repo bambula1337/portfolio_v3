@@ -1,8 +1,8 @@
 <template>
   <section class="welcome-section">
-    <WelcomeSectionLinks/>
-    <WelcomeSectionText/>
-    <WelcomeSectionNavigation/>
+    <WelcomeSectionLinks data-lag="0.5"/>
+    <WelcomeSectionText data-lag="0.1"/>
+    <WelcomeSectionNavigation data-lag="0.5"/>
     <div class="background"></div>
   </section>
 </template>
@@ -59,7 +59,7 @@ export default Vue.extend({
 .welcome-section {
   @apply w-full h-screen flex justify-between items-center px-5;
   & .background{
-    @apply w-full h-full fixed bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
+    @apply w-full h-full absolute bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
     background: linear-gradient(180deg, #16161A 55%, #3D2C73 120%);
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <section class="about-section">
     <AboutSectionText />
-    <AboutSectionImage />
+    <AboutSectionImage/>
   </section>
 </template>
 

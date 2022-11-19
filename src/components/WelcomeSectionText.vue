@@ -14,6 +14,8 @@
   </article>
 </template>
 
+<!--TODO: Create adm's data lag with splitText-->
+
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
