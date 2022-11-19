@@ -1,9 +1,9 @@
 <template>
   <article class="contact-section__text">
-    <h2 class="section-name">Contact me</h2>
+    <h2 class="section-name" data-appearing-text-scale>Contact me</h2>
     <div class="text-wrapper">
-      <h3 class="main-text">A project or Idea?</h3>
-      <h4 class="sub-text">
+      <h3 class="main-text" data-appearing-text-chars>A project or Idea?</h3>
+      <h4 class="sub-text" data-appearing-text-words>
         You can find me on some social medies or networks where I post my creations.you can also
         contact me there to ask your questions about prices and my availability
       </h4>

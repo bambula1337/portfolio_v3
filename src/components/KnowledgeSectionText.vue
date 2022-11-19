@@ -1,8 +1,8 @@
 <template>
   <article class="knowledge-section__text">
     <div class="text-wrapper">
-      <p class="main-text">Experiece</p>
-      <p class="sub-text">My knowledge</p>
+      <p class="main-text" data-appearing-text-scale>Experiece</p>
+      <p class="sub-text" data-appearing-text-chars>My knowledge</p>
     </div>
   </article>
 </template>

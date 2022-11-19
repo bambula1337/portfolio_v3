@@ -2,7 +2,7 @@
   <article class="stage-section-text">
     <div class="text-wrapper">
       <h1 class="main">Stages</h1>
-      <p class="sub">That's how I roll</p>
+      <p class="sub" data-appearing-text-chars>That's how I roll</p>
     </div>
   </article>
 </template>

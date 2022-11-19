@@ -1,12 +1,13 @@
 <template>
   <article class="welcome-section-text">
     <div class="text-wrapper">
-      <p class="main-text">
+      <p class="main-text" data-appearing-text-scale>
         Welcome, I am <span class="gradient">Adm's</span>
       </p>
-      <p class="sub-text">
-        Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
+      <p class="sub-text" data-appearing-text-words>
+        <span>Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
         enthusiastic and kind person.
+        </span>
       </p>
     </div>
     <button class="button" @click="discover">Discover me</button>
@@ -22,6 +23,8 @@ import Vue from 'vue';
 // Gsap
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+// eslint-disable-next-line import/extensions
+import { SplitText } from '@/assets/gsap/SplitText.js';
 
 export default Vue.extend({
   name: 'WelcomeSectionText',
@@ -33,7 +36,7 @@ export default Vue.extend({
   methods: {
     gsapSetup() {
       // Registering Plugins
-      gsap.registerPlugin(ScrollToPlugin);
+      gsap.registerPlugin(ScrollToPlugin, SplitText);
       // Selecting Target
       const secondSection = document.querySelectorAll('.section')[1];
       this.secondSectionId = secondSection?.id;
