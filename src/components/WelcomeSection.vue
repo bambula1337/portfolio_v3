@@ -1,8 +1,8 @@
 <template>
   <section class="welcome-section">
-    <WelcomeSectionLinks data-lag="0.5"/>
-    <WelcomeSectionText data-lag="0.1"/>
-    <WelcomeSectionNavigation data-lag="0.5"/>
+    <WelcomeSectionLinks />
+    <WelcomeSectionText />
+    <WelcomeSectionNavigation />
     <div class="background"></div>
   </section>
 </template>

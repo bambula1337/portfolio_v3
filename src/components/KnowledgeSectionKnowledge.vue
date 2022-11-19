@@ -1,6 +1,6 @@
 <template>
   <div class="knowledge-section__knowledge">
-    <div class="knowledge-main" data-lag="0.1">
+    <div class="knowledge-main">
       <div class="skill" v-for="skill in skills" :key="skill.id">
         <div class="text-wrapper">
           <p class="name">{{ skill.name }}</p>

@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <main id="main">
-      <router-view />
-    </main>
-    <TheFooter />
+    <div id="content">
+      <main id="main">
+        <router-view ref="view"/>
+      </main>
+      <TheFooter />
+    </div>
   </div>
 </template>
 
@@ -27,13 +29,19 @@ export default Vue.extend({
   },
   methods: {
     gsapSetup() {
+      // Registeting Plugins
       gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+      // Creating Smooth Scroll
       const smoother = ScrollSmoother.create({
         wrapper: '#app',
-        content: '#main',
+        content: '#content',
         smooth: 2,
         effects: true,
       });
+      const gsapLagSetup = this.$refs.view?.gsapLagSetup;
+      if (gsapLagSetup) {
+        gsapLagSetup(smoother);
+      }
     },
   },
   mounted() {

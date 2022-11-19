@@ -1,6 +1,6 @@
 <template>
   <article class="knowledge-section__text">
-    <div class="text-wrapper" data-lag="0.2">
+    <div class="text-wrapper">
       <p class="main-text">Experiece</p>
       <p class="sub-text">My knowledge</p>
     </div>
