@@ -1,25 +1,53 @@
 <template>
   <article class="welcome-section-text">
     <div class="text-wrapper">
-      <p class="main-text">
+      <p class="main-text" data-appearing-text-scale>
         Welcome, I am <span class="gradient">Adm's</span>
       </p>
-      <p class="sub-text">
-        Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
+      <p class="sub-text" data-appearing-text-words>
+        <span>Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
         enthusiastic and kind person.
+        </span>
       </p>
     </div>
-    <button class="button">Discover me</button>
-      <img class="icon" :src="require('@/assets/icons/arrow_down.svg')" alt="">
+    <button class="button" @click="discover">Discover me</button>
+      <img class="icon" :src="require('@/assets/icons/arrow_down.svg')" alt="" @click="discover" @keydown.ctrl="discover">
   </article>
 </template>
+
+<!--TODO: Create adm's data lag with splitText-->
 
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
+// Gsap
+import { gsap } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+// eslint-disable-next-line import/extensions
+import { SplitText } from '@/assets/gsap/SplitText.js';
 
 export default Vue.extend({
   name: 'WelcomeSectionText',
+  data() {
+    return {
+      secondSectionId: '',
+    };
+  },
+  methods: {
+    gsapSetup() {
+      // Registering Plugins
+      gsap.registerPlugin(ScrollToPlugin, SplitText);
+      // Selecting Target
+      const secondSection = document.querySelectorAll('.section')[1];
+      this.secondSectionId = secondSection?.id;
+    },
+    discover() {
+      gsap.to(window, { duration: 1.5, scrollTo: `#${this.secondSectionId}`, ease: 'circ.out' });
+    },
+  },
+  mounted() {
+    this.gsapSetup();
+  },
 });
 </script>
 

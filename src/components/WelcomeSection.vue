@@ -1,14 +1,14 @@
 <template>
   <section class="welcome-section">
-    <WelcomeSectionLinks/>
-    <WelcomeSectionText/>
-    <WelcomeSectionNavigation/>
+    <WelcomeSectionLinks />
+    <WelcomeSectionText />
+    <WelcomeSectionNavigation />
     <div class="background"></div>
   </section>
 </template>
 
 <!-- TODO: Create Appearing Animations with gsap
-           Added Discover button and arrow actions -->
+           Fix Glow -->
 
 <script lang="ts">
 // TS Support
@@ -37,15 +37,16 @@ export default Vue.extend({
         background: this.$el.querySelector('.background'),
       };
       // Creating Animation
-      gsap.to(targets.background, {
-        scrollTrigger: {
-          start: '-5% -5%',
-          end: '10% 0%',
-          toggleActions: 'play reverse play none',
-        },
-        opacity: 1,
-        duration: 1,
-      });
+      // gsap.to(targets.background, {
+      //   scrollTrigger: {
+      //     start: '-5% -5%',
+      //     end: '10%, 0%',
+      //     toggleActions: 'play reverse play none',
+      //     pin: '#app',
+      //   },
+      //   opacity: 1,
+      //   duration: 1,
+      // });
     },
   },
   mounted() {
@@ -58,7 +59,7 @@ export default Vue.extend({
 .welcome-section {
   @apply w-full h-screen flex justify-between items-center px-5;
   & .background{
-    @apply w-full h-full fixed bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
+    @apply w-full h-full absolute bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
     background: linear-gradient(180deg, #16161A 55%, #3D2C73 120%);
   }
 }

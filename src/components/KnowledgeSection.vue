@@ -43,8 +43,8 @@ export default Vue.extend({
       });
       gsap.from(targets.knowledge, {
         scrollTrigger: {
-          trigger: '.knowledge-section__knowledge',
-          toggleActions: 'restart none none none',
+          trigger: targets.knowledge,
+          toggleActions: 'play none none none',
           start: 'top 110%',
         },
         duration: 1.5,

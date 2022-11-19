@@ -71,17 +71,19 @@ export default Vue.extend({
     & .icons {
       @apply w-10 flex flex-col justify-center items-center py-5;
       &::before{
-        @apply w-0.5 h-%32.5 absolute self-center bottom-0 bg-project-principal;
+        @apply w-0.5 absolute self-center bottom-0 bg-project-principal;
         $width: 2.5px;
         width: $width;
+        height: calc(50% - 100px);
         z-index: -1;
         left: calc(50% - $width);
         content: '';
       }
       &::after {
-        @apply w-0.5 h-%32.5 absolute self-center top-0 bg-project-principal;
+        @apply w-0.5 absolute self-center top-0 bg-project-principal;
         $width: 2.5px;
         width: $width;
+        height: calc(50% - 100px);
         z-index: -1;
         left: calc(50% - $width);
         content: '';
