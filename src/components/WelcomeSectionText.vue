@@ -1,10 +1,10 @@
 <template>
   <article class="welcome-section-text">
     <div class="text-wrapper">
-      <p class="main-text">
+      <p class="main-text" data-appearing-text-scale>
         Welcome, I am <span class="gradient">Adm's</span>
       </p>
-      <p class="sub-text">
+      <p class="sub-text" data-appearing-text-words>
         <span>Junior Front end developer from Ukraine. Experienced in <span class="semi-bold">Vue js and its ecosystem</span>,
         enthusiastic and kind person.
         </span>
@@ -38,12 +38,6 @@ export default Vue.extend({
       // Selecting Target
       const secondSection = document.querySelectorAll('.section')[1];
       this.secondSectionId = secondSection?.id;
-      const subText = new SplitText('.sub-text');
-      const mainText = new SplitText('.main-text');
-      gsap.from(mainText.chars, { opacity: 0.3, duration: 0.2, stagger: 0.1 });
-      gsap.from(subText.words, {
-        opacity: 0, y: 50, duration: 0.3, stagger: 0.2,
-      });
     },
     discover() {
       gsap.to(window, { duration: 1.5, scrollTo: `#${this.secondSectionId}`, ease: 'circ.out' });
