@@ -4,8 +4,6 @@
   </footer>
 </template>
 
-<!-- TODO: Fix Component -->
-
 <script lang="ts">
 // TS Support
 import Vue from 'vue';

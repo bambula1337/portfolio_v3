@@ -13,8 +13,6 @@
   </article>
 </template>
 
-<!-- TODO: Rewrite Scroll to using smooth scroll -->
-
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
