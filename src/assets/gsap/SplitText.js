@@ -332,7 +332,7 @@
     S = /(?:\s\s+)/g,
     r = 'SplitText',
     o = m(103, 114, 101, 101, 110, 115, 111, 99, 107, 46, 99, 111, 109),
-    l = (function (D) {
+    l = function (D) {
       var u = 'undefined' != typeof window,
         e =
           0 === (u ? window.location.href : '').indexOf(m(102, 105, 108, 101, 58, 47, 47)) ||
@@ -932,7 +932,7 @@
           //     '&source=trial');
         }, 3e3)
       );
-    })('undefined' != typeof window ? window.location.host : ''),
+    },
     d = Array.isArray,
     a = [].slice,
     h =
