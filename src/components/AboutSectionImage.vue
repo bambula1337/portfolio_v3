@@ -1,5 +1,5 @@
 <template>
-  <article class="about-section-image">
+  <article class="about-section__image">
     <img class="image" src="@/assets/images/about_section/main.png" alt="">
   </article>
 </template>
@@ -14,7 +14,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.about-section-image{
+.about-section__image{
   @apply w-76 relative;
   &::before{
     @apply w-68 h-full absolute left-0 top-0 border-4 -ml-5 -mt-5 -z-1;

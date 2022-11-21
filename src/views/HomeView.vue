@@ -33,17 +33,17 @@ export default Vue.extend({
       const targets = [
         {
           name: 'Welcome-Section-Links',
-          target: this.$refs.welcome?.$el.querySelector('.welcome-section-links'),
+          target: this.$refs.welcome?.$el.querySelector('.welcome-section__links'),
           lag: 0.5,
         },
         {
           name: 'Weclome-Section-Text',
-          target: this.$refs.welcome?.$el.querySelector('.welcome-section-text'),
+          target: this.$refs.welcome?.$el.querySelector('.welcome-section__text'),
           lag: 0.1,
         },
         {
           name: 'Welcome-Section-Navigation',
-          target: this.$refs.welcome?.$el.querySelector('.welcome-section-navigation'),
+          target: this.$refs.welcome?.$el.querySelector('.welcome-section__navigation'),
           lag: 0.5,
         },
         {
