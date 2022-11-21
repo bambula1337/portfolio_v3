@@ -34,9 +34,19 @@ export default Vue.extend({
       gsap.registerPlugin(ScrollTrigger);
       // Selecting Targets
       const targets = {
+        links: this.$el.querySelector('.welcome-section-links'),
+        navigation: this.$el.querySelector('.welcome-section-navigation'),
         background: this.$el.querySelector('.background'),
       };
       // Creating Animation
+      gsap.from(targets.links, {
+        x: -100,
+        duration: 1.3,
+      });
+      gsap.from(targets.navigation, {
+        x: 140,
+        duration: 1.4,
+      });
       // gsap.to(targets.background, {
       //   scrollTrigger: {
       //     start: '-5% -5%',
