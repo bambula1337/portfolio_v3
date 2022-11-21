@@ -3,12 +3,10 @@
     <WelcomeSectionLinks />
     <WelcomeSectionText />
     <WelcomeSectionNavigation />
-    <div class="background"></div>
   </section>
 </template>
 
-<!-- TODO: Create Appearing Animations with gsap
-           Fix Glow -->
+<!-- TODO: Fix Glow -->
 
 <script lang="ts">
 // TS Support
@@ -47,16 +45,6 @@ export default Vue.extend({
         x: 140,
         duration: 1.4,
       });
-      // gsap.to(targets.background, {
-      //   scrollTrigger: {
-      //     start: '-5% -5%',
-      //     end: '10%, 0%',
-      //     toggleActions: 'play reverse play none',
-      //     pin: '#app',
-      //   },
-      //   opacity: 1,
-      //   duration: 1,
-      // });
     },
   },
   mounted() {
@@ -68,9 +56,5 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .welcome-section {
   @apply w-full h-screen flex justify-between items-center px-5;
-  & .background{
-    @apply w-full h-full absolute bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
-    background: linear-gradient(180deg, #16161A 55%, #3D2C73 120%);
-  }
 }
 </style>
