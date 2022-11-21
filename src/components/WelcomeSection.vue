@@ -6,8 +6,6 @@
   </section>
 </template>
 
-<!-- TODO: Fix Glow -->
-
 <script lang="ts">
 // TS Support
 import Vue from 'vue';
@@ -32,9 +30,8 @@ export default Vue.extend({
       gsap.registerPlugin(ScrollTrigger);
       // Selecting Targets
       const targets = {
-        links: this.$el.querySelector('.welcome-section-links'),
-        navigation: this.$el.querySelector('.welcome-section-navigation'),
-        background: this.$el.querySelector('.background'),
+        links: this.$el.querySelector('.welcome-section__links'),
+        navigation: this.$el.querySelector('.welcome-section__navigation'),
       };
       // Creating Animation
       gsap.from(targets.links, {

@@ -1,5 +1,5 @@
 <template>
-  <article class="welcome-section-text">
+  <article class="welcome-section__text">
     <div class="text-wrapper">
       <p class="main-text" data-appearing-text-scale>
         Welcome, I am <span class="gradient">Adm's</span>
@@ -11,11 +11,9 @@
       </p>
     </div>
     <button class="button" @click="discover">Discover me</button>
-      <img class="icon" :src="require('@/assets/icons/arrow_down.svg')" alt="" @click="discover" @keydown.ctrl="discover">
+    <img class="arrow-icon" :src="require('@/assets/icons/arrow_down.svg')" alt="" @click="discover" @keydown.ctrl="discover">
   </article>
 </template>
-
-<!--TODO: Create adm's data lag with splitText-->
 
 <script lang="ts">
 // TS Support
@@ -54,7 +52,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import "@/assets/styles/mixins/default_mixins.scss";
 
-.welcome-section-text {
+.welcome-section__text {
   @apply w-screen flex flex-col items-center text-project-title font-project-default;
   align-self: center;
 
@@ -82,7 +80,7 @@ export default Vue.extend({
 
     }
   }
-  & .icon{
+  & .arrow-icon{
     @apply w-12 -mb-20 cursor-pointer;
     animation-name: bounce;
     animation-duration: 1s;

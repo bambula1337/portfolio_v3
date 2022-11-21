@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
-    <WelcomeSection class="welcome-section section" id="welcome" ref="welcome" />
-    <AboutSection class="about-section section" id="about" ref="about"/>
-    <StagesSection class="stages-section section" id="stages" ref="stages"/>
-    <KnowledgeSection class="knowledge-section section" id="knowledge" ref="knowledge"/>
-    <ContactSection class="contact-section section" id="contact" ref="contact"/>
+  <div id="home-view">
+    <WelcomeSection class="section" id="welcome" ref="welcome" />
+    <AboutSection class="section" id="about" ref="about"/>
+    <StagesSection class="section" id="stages" ref="stages"/>
+    <KnowledgeSection class="section" id="knowledge" ref="knowledge"/>
+    <ContactSection class="section" id="contact" ref="contact"/>
   </div>
 </template>
 
@@ -67,20 +67,20 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.home {
+#home-view {
   @apply flex flex-col overflow-x-hidden pb-100;
 
-  & .welcome-section {
+  & #welcome {
     @apply mb-72;
   }
-  & .about-section {
+  & #about {
     @apply mb-80;
   }
 
-  & .stage-section{
+  & #stages{
     @apply mb-100;
   }
-  & .knowledge-section{
+  & #knowledge{
     @apply pt-30 mb-100;
   }
 }
