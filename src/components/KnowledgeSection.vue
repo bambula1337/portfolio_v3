@@ -1,7 +1,7 @@
 <template>
   <section class="knowledge-section">
-    <KnowledgeSectionText class="text" />
-    <KnowledgeSectionKnowledge class="knowledge" />
+    <KnowledgeSectionText />
+    <KnowledgeSectionKnowledge />
   </section>
 </template>
 
