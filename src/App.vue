@@ -10,6 +10,8 @@
   </div>
 </template>
 
+<!--TODO: Get data from json server using vuex and axios-->
+
 <script lang="ts">
 // TS support
 import Vue from 'vue';
