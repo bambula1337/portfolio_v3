@@ -3,8 +3,8 @@
     <div class="knowledge-main">
       <div class="skill" v-for="skill in skills" :key="skill.id">
         <div class="text-wrapper">
-          <p class="name">{{ skill.name }}</p>
-          <p class="period" :class="{ odd: skill.id % 2 === 0 }">{{ skill.period | dateFilter }}</p>
+          <p class="text-name">{{ skill.name }}</p>
+          <p class="text-period" :class="{ odd: skill.id % 2 === 0 }">{{ skill.date | dateFilter }}</p>
         </div>
       </div>
     </div>
@@ -29,57 +29,57 @@ export default Vue.extend({
         {
           id: 1,
           name: 'Vue',
-          period: '2020-10-4',
+          date: '2020-10-4',
         },
         {
           id: 2,
           name: 'HTML',
-          period: '2020-01-4',
+          date: '2020-01-4',
         },
         {
           id: 3,
           name: 'CSS',
-          period: '2020-01-4',
+          date: '2020-01-4',
         },
         {
           id: 4,
           name: 'JS',
-          period: '2021-08-4',
+          date: '2021-08-4',
         },
         {
           id: 5,
           name: 'TS',
-          period: '2022-7-4',
+          date: '2022-7-4',
         },
         {
           id: 6,
           name: 'GSAP',
-          period: '2022-7-4',
+          date: '2022-7-4',
         },
         {
           id: 7,
           name: 'AXIOS',
-          period: '2022-03-4',
+          date: '2022-03-4',
         },
         {
           id: 8,
           name: 'VUEX',
-          period: '2021-03-4',
+          date: '2021-03-4',
         },
         {
           id: 9,
           name: 'NPM',
-          period: '2022-02-4',
+          date: '2022-02-4',
         },
         {
           id: 10,
           name: 'GIT',
-          period: '2020-07-4',
+          date: '2020-07-4',
         },
         {
           id: 11,
           name: 'Tailwind',
-          period: '2022-03-4',
+          date: '2022-03-4',
         },
       ],
     };
@@ -162,11 +162,11 @@ export default Vue.extend({
     @apply h-70 flex items-center relative flex-wrap border-2 border-project-principal rounded-4xl py-20 overflow-hidden;
     & .skill {
       @apply w-%25 mb-32;
-      & .name {
+      & .text-name {
         @apply text-5xl font-semibold text-project-title uppercase;
       }
 
-      & .period {
+      & .text-period {
         @apply text-xl font-semibold text-project-second;
       }
       & .odd {

@@ -6,6 +6,7 @@
       </main>
       <TheFooter />
     </div>
+    <div id="glow"></div>
   </div>
 </template>
 
@@ -45,11 +46,14 @@ export default Vue.extend({
         gsapLagSetup(smoother);
       }
       // Selecting Targets for Appearing animation
-      const textChars = this.$el.querySelectorAll('[data-appearing-text-chars]');
-      const textWords = this.$el.querySelectorAll('[data-appearing-text-words]');
-      const textScale = this.$el.querySelectorAll('[data-appearing-text-scale]');
+      const targets = {
+        textChars: this.$el.querySelectorAll('[data-appearing-text-chars]'),
+        textWords: this.$el.querySelectorAll('[data-appearing-text-words]'),
+        textScale: this.$el.querySelectorAll('[data-appearing-text-scale]'),
+        glow: this.$el.querySelector('#glow'),
+      };
       // Creating Appearing Animation
-      textChars.forEach((text) => {
+      targets.textChars.forEach((text) => {
         const splitted = new SplitText(text, { type: 'chars' });
         gsap.from(splitted.chars, {
           scrollTrigger: {
@@ -63,7 +67,7 @@ export default Vue.extend({
           },
         });
       });
-      textWords.forEach((text) => {
+      targets.textWords.forEach((text) => {
         const splitted = new SplitText(text, { type: 'words' });
         gsap.from(splitted.words, {
           scrollTrigger: {
@@ -78,7 +82,7 @@ export default Vue.extend({
           },
         });
       });
-      textScale.forEach((text) => {
+      targets.textScale.forEach((text) => {
         gsap.from(text, {
           scrollTrigger: {
             trigger: text,
@@ -87,6 +91,16 @@ export default Vue.extend({
           scale: 0.5,
           duration: 0.5,
         });
+      });
+      // Creating Glow Animation
+      gsap.to(targets.glow, {
+        scrollTrigger: {
+          start: '-5% -5%',
+          end: '10%, 0%',
+          toggleActions: 'play reverse play none',
+        },
+        opacity: 1,
+        duration: 1,
       });
     },
   },
@@ -103,6 +117,10 @@ export default Vue.extend({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  & #glow{
+    @apply w-full h-full absolute bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
+    background: linear-gradient(180deg, #16161A 55%, #3D2C73 120%);
+  }
 }
 
 nav {

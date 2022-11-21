@@ -1,9 +1,9 @@
 <template>
-  <section class="stage-section">
+  <section class="stages-section">
     <StagesSectionText />
     <StagesSectionStages />
-    <div class="stage-background">
-      <div class="stage-background-image-wrapper">
+    <div class="stages-background">
+      <div class="stages-background-image-wrapper">
         <svg
           width="1478"
           height="364"
@@ -19,7 +19,7 @@
           />
         </svg>
       </div>
-      <div class="stage-background-plane-wrapper">
+      <div class="stages-background-plane-wrapper">
         <img class="plane" src="@/assets/images/stages_section/plane.svg" alt="" />
       </div>
     </div>
@@ -49,18 +49,18 @@ export default Vue.extend({
     gsapSetup() {
       // Registering Plugins
       gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
-      // Have to refresh because in some browsers ScrollTrigger animation brakes after reloads
+      // Have to refresh because in some browsers ScrollTrigger animation brakes after window resize or refresh the page
       ScrollTrigger.refresh();
       // Creating Timeline
       const tl = gsap.timeline();
       // Selecting Targets
       const targets = {
         section: this.$el,
-        text: this.$el.querySelector('.stage-section-text'),
-        stages: this.$el.querySelector('.stages-section-stages'),
-        cards: this.$el.querySelectorAll('.card'),
+        text: this.$el.querySelector('.stages-section__text'),
+        stages: this.$el.querySelector('.stages-section__stages'),
+        cards: this.$el.querySelectorAll('.stages-card'),
         background: this.$el.querySelector('.background-image'),
-        plane: this.$el.querySelector('.stage-background-plane-wrapper'),
+        plane: this.$el.querySelector('.stages-background-plane-wrapper'),
       };
       // Creating Animations
       tl.from(targets.text, {
@@ -101,7 +101,7 @@ export default Vue.extend({
       });
       gsap.to(targets.plane, {
         scrollTrigger: {
-          trigger: '.stage-section-text',
+          trigger: targets.text,
           start: 'top 0%',
           end: '+=500',
           scrub: 5,
@@ -122,17 +122,17 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.stage-section {
+.stages-section {
   @apply flex flex-col;
 
-  & .stage-background {
-    & .stage-background-image-wrapper {
+  & .stages-background {
+    & .stages-background-image-wrapper {
       @apply absolute top-20 -z-1;
       -webkit-mask-image: url('@/assets/images/stages_section/line.svg');
       mask-image: url('@/assets/images/stages_section/line.svg');
     }
 
-    & .stage-background-plane-wrapper {
+    & .stages-background-plane-wrapper {
       @apply absolute top-10 -left-10 -z-1;
       & .plane {
         transform: rotate(45deg);

@@ -1,5 +1,5 @@
 <template>
-  <article class="stage-section-text">
+  <article class="stages-section__text">
     <div class="text-wrapper">
       <h1 class="main">Stages</h1>
       <p class="sub" data-appearing-text-chars>That's how I roll</p>
@@ -19,7 +19,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/assets/styles/mixins/default_mixins.scss';
 
-.stage-section-text{
+.stages-section__text{
   @apply flex flex-col items-start text-left font-project-default px-26;
   & .text-wrapper{
     & .main{

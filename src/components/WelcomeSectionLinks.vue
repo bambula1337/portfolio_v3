@@ -1,13 +1,13 @@
 <template>
-  <article class="welcome-section-links">
-    <div class="logo">
-      <p class="logo-text">AS</p>
+  <article class="welcome-section__links">
+    <div class="logo-wrapper">
+      <p class="logo">AS</p>
     </div>
     <div class="icons-wrapper">
       <div class="icons">
         <a class="link" target="_blank" :href="link.url" v-for="link in links" :key="link.id">
-          <img class="icon" :src="link.logo" alt="" />
-          <p class="name">{{link.name}}</p>
+          <img class="link-icon" :src="link.logo" alt="" />
+          <p class="link-name">{{link.name}}</p>
         </a>
       </div>
     </div>
@@ -50,12 +50,12 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/assets/styles/mixins/default_mixins.scss';
 
-.welcome-section-links {
+.welcome-section__links {
   @apply flex flex-col items-center text-project-principal font-project-default;
   min-height: 100px;
-  & .logo {
+  & .logo-wrapper {
     @apply h-10 mb-5;
-    & .logo-text {
+    & .logo {
       @apply text-4xl font-semibold uppercase mt-0 mb-7 cursor-pointer transition-all duration-700;
       @include default-gradient(5px);
       &:hover {
@@ -90,7 +90,7 @@ export default Vue.extend({
       }
       & .link{
         font-size: 0;
-        & .icon {
+        & .link-icon {
           @apply w-8 h-8 my-4 ring-2 ring-project-background ring-offset-2 rounded-md ring-offset-project-background cursor-pointer transition-all duration-400;
 
           &:hover {

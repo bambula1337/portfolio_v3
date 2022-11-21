@@ -1,6 +1,6 @@
 <template>
-  <article class="welcome-section-navigation">
-    <div class="dots">
+  <article class="welcome-section__navigation">
+    <div class="dots-wrapper">
       <a
         :href="`#${dot.id}`"
         class="dot"
@@ -67,9 +67,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.welcome-section-navigation {
+.welcome-section__navigation {
   @apply w-14 text-project-title;
-  & .dots {
+  & .dots-wrapper {
     @apply w-10 flex relative flex-col items-center z-10;
     font-size: 0px;
     &:hover::after {

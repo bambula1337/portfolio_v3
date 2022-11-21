@@ -1,8 +1,8 @@
 <template>
-  <article class="stages-section-stages">
-    <div class="cards-wrapper">
+  <article class="stages-section__stages">
+    <div class="stages-cards-wrapper">
       <div
-        class="card"
+        :class="cardClass"
         v-for="card in cards"
         :key="card.id"
         @mousemove="cardMove"
@@ -10,11 +10,11 @@
         @mouseleave="cardLeave"
         @focusout="cardLeave"
       >
-        <div class="top">
-          <p class="number">{{ card.id | numberOfCard }}</p>
-          <h1 class="name">{{ card.name }}</h1>
+        <div class="top-text-wrapper">
+          <p class="text-number">{{ card.id | numberOfCard }}</p>
+          <h1 class="text-name">{{ card.name }}</h1>
         </div>
-        <div class="bottom">
+        <div class="bottom-text-wrapper">
           <p class="text">{{ card.text }}</p>
         </div>
       </div>
@@ -33,6 +33,7 @@ export default Vue.extend({
   data() {
     return {
       minimalRotation: 15,
+      cardClass: 'stages-card',
       cards: [
         {
           id: 1,
@@ -55,8 +56,8 @@ export default Vue.extend({
   methods: {
     cardMove(event: any) {
       let { target } = event;
-      if (target.className !== 'card') {
-        target = target.closest('.card');
+      if (target.className !== this.cardClass) {
+        target = target.closest(`.${this.cardClass}`);
       }
       const width = target.clientWidth;
       const height = target.clientHeight;
@@ -75,8 +76,8 @@ export default Vue.extend({
     },
     cardLeave(event: any) {
       let { target } = event;
-      if (event.target.className !== 'card') {
-        target = target.closest('.card');
+      if (event.target.className !== this.cardClass) {
+        target = target.closest(`.${this.cardClass}`);
       }
       gsap.to(target, {
         rotateX: 0,
@@ -100,11 +101,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/assets/styles/mixins/default_mixins.scss';
 
-.stages-section-stages {
+.stages-section__stages {
   @apply flex justify-center items-center mt-26;
-  & .cards-wrapper {
+  & .stages-cards-wrapper {
     @apply w-full flex justify-between flex-wrap text-left text-project-title font-project-default px-26;
-    & .card {
+    & .stages-card {
       @apply bg-project-background border-2 border-project-title rounded-2xl py-3 px-5;
       $width: 20rem;
       width: $width;
@@ -112,18 +113,18 @@ export default Vue.extend({
       &:hover{
         @apply border-project-highlight;
       }
-      & .top {
-        & .number {
+      & .top-text-wrapper {
+        & .text-number {
           @apply inline text-2xl;
           @include default-gradient(40px, 0px);
         }
 
-        & .name {
+        & .text-name {
           @apply text-2xl font-semibold my-3;
         }
       }
 
-      & .bottom {
+      & .bottom-text-wrapper {
         & .text {
           @apply text-project-paragraph font-medium;
         }

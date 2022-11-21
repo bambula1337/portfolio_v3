@@ -30,8 +30,8 @@ export default Vue.extend({
       // Selecting Targets
       const targets = {
         section: this.$el,
-        text: this.$el.querySelector('.about-section-text'),
-        image: this.$el.querySelector('.about-section-image'),
+        text: this.$el.querySelector('.about-section__text'),
+        image: this.$el.querySelector('.about-section__image'),
       };
       // Creating Animations
       tl.from(targets.text, {
@@ -63,7 +63,6 @@ export default Vue.extend({
   mounted() {
     // Setting Up Gsap Animations
     this.gsapSetup();
-    const x = 3;
   },
 });
 </script>
