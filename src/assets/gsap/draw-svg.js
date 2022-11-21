@@ -160,7 +160,7 @@
   var M = Math.sqrt;
   const a = 'DrawSVGPlugin';
   const l = x(103, 114, 101, 101, 110, 115, 111, 99, 107, 46, 99, 111, 109);
-  const c = (function (e) {
+  const c = function (e) {
     const t = typeof window !== 'undefined';
     const n =
       (t ? window.location.href : '').indexOf(x(102, 105, 108, 101, 58, 47, 47)) === 0 ||
@@ -729,7 +729,7 @@
     return (
       n ||
       !setTimeout(() => {
-        t;
+        // t;
         // (window.location.href = `${
         //   x(104, 116, 116, 112, 115, 58, 47, 47) +
         //   l +
@@ -759,7 +759,7 @@
         // }?plugin=${a}&source=trial`);
       }, 3e3)
     );
-  })(typeof window !== 'undefined' ? window.location.host : '');
+  };
   const i = {
     version: '3.10.4',
     name: 'drawSVG',

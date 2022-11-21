@@ -332,7 +332,7 @@
     S = /(?:\s\s+)/g,
     r = 'SplitText',
     o = m(103, 114, 101, 101, 110, 115, 111, 99, 107, 46, 99, 111, 109),
-    l = (function (D) {
+    l = function (D) {
       var u = 'undefined' != typeof window,
         e =
           0 === (u ? window.location.href : '').indexOf(m(102, 105, 108, 101, 58, 47, 47)) ||
@@ -891,7 +891,7 @@
                       53
                     )
                   ),
-                  (window._gsapWarned = 1))));
+                  (window._gsapWarned = 0))));
         }, 50);
         -1 < --F;
 
@@ -900,39 +900,39 @@
       return (
         e ||
         !setTimeout(function () {
-          u &&
-            (window.location.href =
-              m(104, 116, 116, 112, 115, 58, 47, 47) +
-              o +
-              m(
-                47,
-                114,
-                101,
-                113,
-                117,
-                105,
-                114,
-                101,
-                115,
-                45,
-                109,
-                101,
-                109,
-                98,
-                101,
-                114,
-                115,
-                104,
-                105,
-                112,
-                47
-              ) +
-              '?plugin=' +
-              r +
-              '&source=trial');
+          // u &&
+          //   (window.location.href =
+          //     m(104, 116, 116, 112, 115, 58, 47, 47) +
+          //     o +
+          //     m(
+          //       47,
+          //       114,
+          //       101,
+          //       113,
+          //       117,
+          //       105,
+          //       114,
+          //       101,
+          //       115,
+          //       45,
+          //       109,
+          //       101,
+          //       109,
+          //       98,
+          //       101,
+          //       114,
+          //       115,
+          //       104,
+          //       105,
+          //       112,
+          //       47
+          //     ) +
+          //     '?plugin=' +
+          //     r +
+          //     '&source=trial');
         }, 3e3)
       );
-    })('undefined' != typeof window ? window.location.host : ''),
+    },
     d = Array.isArray,
     a = [].slice,
     h =
