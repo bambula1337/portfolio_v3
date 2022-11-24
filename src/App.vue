@@ -10,7 +10,9 @@
   </div>
 </template>
 
-<!--TODO: Get data from json server using vuex and axios-->
+<!--TODO: Get data from json server using vuex and axios
+          Add downloadable CV
+          -->
 
 <script lang="ts">
 // TS support
