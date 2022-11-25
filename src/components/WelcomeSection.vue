@@ -1,6 +1,6 @@
 <template>
   <section class="welcome-section">
-    <WelcomeSectionLinks />
+    <WelcomeSectionLinks :social="social" />
     <WelcomeSectionText />
     <WelcomeSectionNavigation />
   </section>
@@ -16,6 +16,8 @@ import WelcomeSectionNavigation from '@/components/WelcomeSectionNavigation.vue'
 // Gsap
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// Vuex
+import { mapActions, mapGetters } from 'vuex';
 
 export default Vue.extend({
   name: 'WelcomeSection',
@@ -43,9 +45,17 @@ export default Vue.extend({
         duration: 1.4,
       });
     },
+    getData() {
+      this.getSocial();
+    },
+    ...mapActions('home', ['getSocial']),
+  },
+  computed: {
+    ...mapGetters('home', ['social']),
   },
   mounted() {
     this.gsapSetup();
+    this.getData();
   },
 });
 </script>
