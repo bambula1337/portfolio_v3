@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { SET_SOCIAL } from '@/store/mutation-types';
-import { SocialLink } from '../types/home/social-link';
-
-type Social = SocialLink[];
+import { getSocial } from '@/store/types/home/requestTypes';
+import { Social } from '../types/home/social';
 
 interface State {
   social: Social;
@@ -21,8 +20,8 @@ export const mutations = {
 export const actions = {
   async getSocial(context: any) {
     try {
-      const request = await axios.get('http://localhost:3000/links');
-      context.commit(SET_SOCIAL, request.data);
+      const { data }: getSocial = await axios.get('http://localhost:3000/links');
+      context.commit(SET_SOCIAL, data);
     } catch (error) {
       console.log(error);
     }
