@@ -20,8 +20,8 @@ export const mutations = {
 export const actions = {
   async getSocial(context: any) {
     try {
-      const { data }: getSocial = await axios.get('http://localhost:3000/links');
-      context.commit(SET_SOCIAL, data);
+      const response: getSocial = await axios.get('http://localhost:3000/links');
+      context.commit(SET_SOCIAL, response.data);
     } catch (error) {
       console.log(error);
     }
