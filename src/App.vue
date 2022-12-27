@@ -28,6 +28,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from '@/assets/gsap/ScrollSmoother.js';
 // eslint-disable-next-line import/extensions
 import { SplitText } from '@/assets/gsap/SplitText.js';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default Vue.extend({
   name: 'AppComponent',
@@ -110,6 +111,7 @@ export default Vue.extend({
   },
   mounted() {
     this.gsapSetup();
+    createUserWithEmailAndPassword(getAuth(), 'oleg133766@gmail.com', 'Oleg133744');
   },
 });
 </script>
