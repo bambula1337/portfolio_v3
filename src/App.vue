@@ -6,6 +6,8 @@
 
 <!--TODO: Get data from json server using vuex and axios
           Add downloadable CV
+          Error Layout
+          DATA BASE from firebase contact informations
           -->
 
 <script lang="ts">

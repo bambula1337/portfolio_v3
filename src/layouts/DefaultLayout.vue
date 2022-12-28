@@ -110,6 +110,9 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .default-layout{
+  & #main{
+    @apply min-h-screen;
+  }
   & #glow{
     @apply w-full h-full absolute bottom-0 left-0 bg-gradient-to-b from-project-background to-project-first -z-10 opacity-0;
     background: linear-gradient(180deg, #16161A 55%, #3D2C73 120%);
