@@ -15,13 +15,20 @@
 import Vue from 'vue';
 // Tailwind styles
 import '@/assets/styles/tailwind/tailwind.scss';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+// Layouts
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
+// Firebase
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+// Vuex
+import { mapActions } from 'vuex';
 
 export default Vue.extend({
   name: 'AppComponent',
   components: {
     DefaultLayout,
+  },
+  methods: {
+    ...mapActions('auth', ['setUser']),
   },
   computed: {
     layout() {
@@ -32,7 +39,9 @@ export default Vue.extend({
     },
   },
   mounted() {
-    createUserWithEmailAndPassword(getAuth(), 'oleg133766@gmail.com', 'Oleg133744');
+    onAuthStateChanged(getAuth(), (user) => {
+      this.setUser(user);
+    });
   },
 });
 </script>
