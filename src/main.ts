@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { initializeApp } from 'firebase/app';
+import baseInput from '@/components/BaseInput.vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -22,6 +23,8 @@ const firebaseConfig = {
   measurementId: 'G-SQJBV8PGFW',
 };
 initializeApp(firebaseConfig);
+
+Vue.component('base-input', baseInput);
 
 new Vue({
   router,

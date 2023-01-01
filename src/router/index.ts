@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import LoginView from '@/views/LoginView.vue';
-import SignInView from '@/views/SignInView.vue';
+import AuthView from '@/views/AuthView.vue';
 import SecretView from '@/views/SecretView.vue';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import HomeView from '../views/HomeView.vue';
@@ -18,17 +17,9 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    path: '/adms',
-    name: 'login',
-    component: LoginView,
-    meta: {
-      layout: 'default',
-    },
-  },
-  {
-    path: '/signin',
-    name: 'signin',
-    component: SignInView,
+    path: '/auth',
+    name: 'auth',
+    component: AuthView,
     meta: {
       layout: 'default',
     },
