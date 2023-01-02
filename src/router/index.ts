@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import AuthView from '@/views/AuthView.vue';
-import SecretView from '@/views/SecretView.vue';
+import ProfileView from '@/views/ProfileView.vue';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import HomeView from '../views/HomeView.vue';
 
@@ -25,9 +25,9 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    path: '/secret',
-    name: 'secret',
-    component: SecretView,
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView,
     meta: {
       layout: 'default',
       requiresAuth: true,
@@ -65,7 +65,7 @@ router.beforeEach(async (to, from, next) => {
       next();
     } else {
       alert('You dont have access!');
-      next('/');
+      next('/auth');
     }
   } else {
     next();

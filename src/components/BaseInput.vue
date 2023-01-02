@@ -29,8 +29,9 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .base-input-wrapper {
+  @apply text-xl font-semibold;
   & .base-input {
-    @apply w-full outline-none border-b-2 border-project-principal text-xl mb-5 pb-2 transition-all duration-200;
+    @apply w-full outline-none border-b-2 border-project-principal text-xl font-normal mt-5 mb-10 pb-2 transition-all duration-200;
     background: transparent;
     &:focus {
       @apply border-project-highlight;
