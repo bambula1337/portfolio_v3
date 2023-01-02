@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import AuthView from '@/views/AuthView.vue';
 import ProfileView from '@/views/ProfileView.vue';
+import ResetView from '@/views/ResetView.vue';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import HomeView from '../views/HomeView.vue';
 
@@ -28,6 +29,15 @@ const routes: Array<RouteConfig> = [
     path: '/profile',
     name: 'profile',
     component: ProfileView,
+    meta: {
+      layout: 'default',
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/reset',
+    name: 'reset',
+    component: ResetView,
     meta: {
       layout: 'default',
       requiresAuth: true,
