@@ -1,10 +1,11 @@
 <template>
   <div class="profile-view">
-    <img :src="getUser.photoURL" class="profile-image" alt="" />
+    <img :src="photoURL" class="profile-image" alt="" />
     <form @submit.prevent="applyChanges" class="profile-form">
       <fieldset class="inputs-wrapper">
         <base-input v-model="getUser.displayName">Name:</base-input>
         <base-input v-model="getUser.email">Email:</base-input>
+        <base-input v-model="food">Food:</base-input>
       </fieldset>
       <button class="apply-button" type="submit">Apply Changes</button>
     </form>
@@ -30,12 +31,24 @@ import { mapGetters } from 'vuex';
 import {
   updateProfile, updateEmail, linkWithPopup, GoogleAuthProvider,
 } from 'firebase/auth';
+import {
+  getDatabase, ref, update, child, onValue,
+} from 'firebase/database';
 
 export default Vue.extend({
   name: 'ProfileView',
+  data() {
+    return {
+      food: '',
+    };
+  },
   methods: {
     async applyChanges() {
       try {
+        const db = getDatabase();
+        update(child(ref(db, 'users'), this.getUser.uid), {
+          food: this.food,
+        });
         await updateProfile(this.getUser, {
           displayName: this.getUser.displayName,
         });
@@ -60,6 +73,21 @@ export default Vue.extend({
         (provider: any) => provider.providerId === 'google.com',
       );
     },
+    photoURL() {
+      return (
+        this.getUser.photoURL
+        || this.getUser.providerData.find((provider: any) => provider.photoURL !== null).photoURL
+      );
+    },
+  },
+  created() {
+    const db = getDatabase();
+    onValue(child(ref(db, 'users'), this.getUser.uid), (snapshot) => {
+      const value = snapshot.val()?.food;
+      if (value) {
+        this.food = value;
+      }
+    });
   },
 });
 </script>

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { initializeApp } from 'firebase/app';
+import { getDatabase } from 'firebase/database';
 import baseInput from '@/components/BaseInput.vue';
 import App from './App.vue';
 import router from './router';
@@ -21,8 +22,11 @@ const firebaseConfig = {
   appId: '1:170200558241:web:7ee4895300ba6875a39ee0',
 
   measurementId: 'G-SQJBV8PGFW',
+
+  databaseURL: 'https://portfolio-6f257-default-rtdb.firebaseio.com/',
 };
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+getDatabase(app);
 
 Vue.component('base-input', baseInput);
 
