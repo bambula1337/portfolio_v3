@@ -74,10 +74,7 @@ export default Vue.extend({
       );
     },
     photoURL() {
-      return (
-        this.getUser.photoURL
-        || this.getUser.providerData.find((provider: any) => provider.photoURL !== null).photoURL
-      );
+      return this.getUser.providerData.find((provider: any) => provider.photoURL !== null)?.photoURL || '';
     },
   },
   created() {
