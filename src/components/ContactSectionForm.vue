@@ -6,24 +6,22 @@
     </div>
     <form class="form">
       <div class="main-inputs-wrapper">
-        <label for=".main-input" v-for="input in inputs.main" :key="input.id">
-          <input
-            :type="input.type"
-            v-model="input.value"
-            :placeholder="input.placeholder"
-            class="main-input input"
-          />
-        </label>
+        <base-input
+          v-for="input in inputs.main"
+          :key="input.id"
+          :type="input.type"
+          v-model="input.value"
+          :placeholder="input.placeholder"
+        />
       </div>
       <div class="sub-inputs-wrapper">
-        <label for=".sub-input" v-for="input in inputs.sub" :key="input.id">
-          <input
-            :type="input.type"
-            v-model="input.value"
-            :placeholder="input.placeholder"
-            class="sub-input input"
-          />
-        </label>
+        <base-input
+          v-for="input in inputs.sub"
+          :key="input.id"
+          :type="input.type"
+          v-model="input.value"
+          :placeholder="input.placeholder"
+        />
       </div>
       <button type="submit" class="button">
         <p class="button-text">Send</p>

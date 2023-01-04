@@ -5,8 +5,8 @@
     </div>
     <div class="icons-wrapper">
       <div class="icons">
-        <a class="link" target="_blank" :href="link.url" v-for="link in links" :key="link.id">
-          <img class="link-icon" :src="link.logo" alt="" />
+        <a class="link" target="_blank" :href="link.url" v-for="link in social" :key="link.id">
+          <img class="link-icon" :src="urlFixer(link.logo)" alt="" />
           <p class="link-name">{{link.name}}</p>
         </a>
       </div>
@@ -20,29 +20,14 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'WelcomeSectionLinks',
-  data() {
-    return {
-      links: [
-        {
-          id: 1,
-          name: 'LinkedIn',
-          logo: require('@/assets/icons/icon_linkedin.svg'),
-          url: 'https://www.linkedin.com/in/oleg-golevitch-2a04b4250/',
-        },
-        {
-          id: 2,
-          name: 'Github',
-          logo: require('@/assets/icons/icon_github.svg'),
-          url: 'https://github.com/bambula1337',
-        },
-        {
-          id: 3,
-          name: 'Instagram',
-          logo: require('@/assets/icons/icon_instagram.svg'),
-          url: 'https://www.instagram.com/adms_dev/',
-        },
-      ],
-    };
+  props: {
+    social: Array,
+  },
+  methods: {
+    urlFixer(url:string) {
+      // eslint-disable-next-line import/no-dynamic-require
+      return require(`@/assets/${url}`);
+    },
   },
 });
 </script>

@@ -29,57 +29,57 @@ export default Vue.extend({
         {
           id: 1,
           name: 'Vue',
-          date: '2020-10-4',
+          date: '2020-10-04',
         },
         {
           id: 2,
           name: 'HTML',
-          date: '2020-01-4',
+          date: '2020-01-04',
         },
         {
           id: 3,
           name: 'CSS',
-          date: '2020-01-4',
+          date: '2020-01-04',
         },
         {
           id: 4,
           name: 'JS',
-          date: '2021-08-4',
+          date: '2021-08-04',
         },
         {
           id: 5,
           name: 'TS',
-          date: '2022-7-4',
+          date: '2022-07-04',
         },
         {
           id: 6,
           name: 'GSAP',
-          date: '2022-7-4',
+          date: '2022-07-04',
         },
         {
           id: 7,
           name: 'AXIOS',
-          date: '2022-03-4',
+          date: '2022-03-04',
         },
         {
           id: 8,
           name: 'VUEX',
-          date: '2021-03-4',
+          date: '2021-03-04',
         },
         {
           id: 9,
           name: 'NPM',
-          date: '2022-02-4',
+          date: '2022-02-04',
         },
         {
           id: 10,
           name: 'GIT',
-          date: '2020-07-4',
+          date: '2020-07-04',
         },
         {
           id: 11,
           name: 'Tailwind',
-          date: '2022-03-4',
+          date: '2022-03-04',
         },
       ],
     };
